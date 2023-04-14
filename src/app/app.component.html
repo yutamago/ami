@@ -1,0 +1,9 @@
+<app-window-handle-bar *ngIf="electronService.isElectron"></app-window-handle-bar>
+<div class="main-area">
+  <app-navigation-left></app-navigation-left>
+  <div class="main-outlet">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+

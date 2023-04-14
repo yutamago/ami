@@ -1,0 +1,92 @@
+@use "styles/colors";
+
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  box-sizing: border-box;
+
+
+
+  // allow the user to drag the window through this bar
+  -webkit-user-select: none;
+  //noinspection CssUnknownProperty
+  -webkit-app-region: drag;
+
+}
+
+.window-title {
+  font-weight: bold;
+  padding: 0 1rem;
+}
+
+.window-controls {
+  display: flex;
+  height: 100%;
+
+  .control {
+    width: 3rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+
+    // dont drag the window when clicking a button
+    //noinspection CssUnknownProperty
+    -webkit-app-region: no-drag;
+
+    &:not([disabled]):not(.disabled) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: colors.$hover-background;
+        &.fa-x {
+          background-color: colors.$warn-hover-background;
+        }
+      }
+      &:active  {
+        background-color: colors.$focus-background;
+        &.fa-x {
+          background-color: colors.$warn-focus-background;
+        }
+      }
+    }
+
+
+    &.fa-window-minimize::before {
+      margin-top: -.6em;
+    }
+
+
+  }
+}
+
+
+// reset buttons
+button {
+  appearance: initial;
+  text-rendering: initial;
+  color: inherit;
+  letter-spacing: initial;
+  word-spacing: initial;
+  line-height: initial;
+  text-transform: initial;
+  text-indent: initial;
+  text-shadow: initial;
+  display: initial;
+  text-align: initial;
+  align-items: initial;
+  cursor: initial;
+  box-sizing: initial;
+  background-color: initial;
+  margin: initial;
+  padding: initial;
+  border-width: initial;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+
+  outline: none !important;
+}

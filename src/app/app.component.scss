@@ -1,0 +1,33 @@
+@use "styles/colors";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.main-area {
+  display: flex;
+  flex-grow: 1;
+}
+
+.main-outlet {
+  height: 100%;
+  flex-grow: 1;
+
+  background-color: colors.$main-outlet-background;
+  color: colors.$main-outlet-background-contrast;
+
+  :nth-child(2) {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+:host.electron .main-outlet {
+  border-top-left-radius: .5rem;
+}

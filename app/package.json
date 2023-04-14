@@ -1,0 +1,12 @@
+{
+  "name": "taiga-electron",
+  "version": "1.0.0",
+  "description": "A new take on Taiga, the popular anime tracker",
+  "author": {
+    "name": "yutamago"
+  },
+  "main": "main.js",
+  "private": true,
+  "dependencies": {
+  }
+}

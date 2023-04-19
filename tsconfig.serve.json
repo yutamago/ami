@@ -1,5 +1,18 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "declarationMap": false,
+    "esModuleInterop": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "strict": true,
+    "baseUrl": ".",
+    "skipLibCheck": true,
+
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",

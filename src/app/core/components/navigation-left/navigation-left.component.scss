@@ -1,3 +1,5 @@
+@use "styles/colors";
+
 :host {
   display: flex;
   flex-direction: column;
@@ -16,5 +18,23 @@ ul {
     margin-block-start: 0;
     margin-block-end: 0;
     padding-inline-start: 0;
+
+    a {
+      display: flex;
+      background-color: grey;
+      border-radius: 25px;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      transition: border-radius 200ms ease-out;
+
+      color: colors.$app-background-contrast;
+      text-decoration: none;
+
+      &:hover {
+        //background-color: colors.$hover-background;
+        border-radius: 18px;
+      }
+    }
   }
 }

@@ -6,8 +6,7 @@
   "author": {
     "name": "yutamago"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "main": "app/main.js",
   "private": true,
   "scripts": {
@@ -29,17 +28,19 @@
     "e2e": "npm run build:prod && playwright test -c e2e/playwright.config.ts e2e/",
     "e2e:show-trace": "playwright show-trace e2e/tracing/trace.zip",
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "switch-mode:install": "tsc switch-mode.install.ts && node switch-mode.install.js",
+    "switch-mode:default": "tsc switch-mode.default.ts && node switch-mode.default.js"
   },
   "dependencies": {
-    "@angular/common": "15.1.5",
-    "@angular/compiler": "15.1.5",
-    "@angular/core": "15.1.5",
-    "@angular/forms": "15.1.5",
-    "@angular/language-service": "15.1.5",
-    "@angular/platform-browser": "15.1.5",
-    "@angular/platform-browser-dynamic": "15.1.5",
-    "@angular/router": "15.1.5",
+    "@angular/common": "15.2.8",
+    "@angular/compiler": "15.2.8",
+    "@angular/core": "15.2.8",
+    "@angular/forms": "15.2.8",
+    "@angular/language-service": "15.2.8",
+    "@angular/platform-browser": "15.2.8",
+    "@angular/platform-browser-dynamic": "15.2.8",
+    "@angular/router": "15.2.8",
     "@fortawesome/fontawesome-free": "6.4.0",
     "rxjs": "7.8.0",
     "tslib": "^2.5.0",
@@ -47,14 +48,14 @@
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "15.0.0",
-    "@angular-devkit/build-angular": "15.1.6",
+    "@angular-devkit/build-angular": "15.2.6",
     "@angular-eslint/builder": "15.2.1",
     "@angular-eslint/eslint-plugin": "15.2.1",
     "@angular-eslint/eslint-plugin-template": "15.2.1",
     "@angular-eslint/schematics": "15.2.1",
     "@angular-eslint/template-parser": "15.2.1",
-    "@angular/cli": "15.1.6",
-    "@angular/compiler-cli": "15.1.5",
+    "@angular/cli": "15.2.6",
+    "@angular/compiler-cli": "15.2.8",
     "@ngx-translate/core": "14.0.0",
     "@ngx-translate/http-loader": "7.0.0",
     "@playwright/test": "1.30.0",

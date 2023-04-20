@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * Ausführen bevor wir Angular-CLI Zeug machen.
+ */
 exports.__esModule = true;
 var fs_1 = require("fs");
 // Pfad zur angular.json Datei

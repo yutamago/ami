@@ -3,13 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './shared/components';
 
 import { HomeRoutingModule } from './home/home-routing.module';
-import { DetailRoutingModule } from './detail/detail-routing.module';
+import {AnimeListComponent} from "./anime-list/anime-list.component";
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'anime-list',
+    component: AnimeListComponent
   },
   {
     path: '**',
@@ -21,7 +25,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {}),
     HomeRoutingModule,
-    DetailRoutingModule
   ],
   exports: [RouterModule]
 })

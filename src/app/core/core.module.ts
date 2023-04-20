@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {WindowHandleBarComponent} from './components/window-handle-bar/window-handle-bar.component';
 import {NavigationLeftComponent} from './components/navigation-left/navigation-left.component';
-import {RouterLink} from "@angular/router";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -13,10 +13,11 @@ import {RouterLink} from "@angular/router";
     WindowHandleBarComponent,
     NavigationLeftComponent
   ],
-    imports: [
-        CommonModule,
-        RouterLink
-    ]
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterLinkActive
+  ]
 })
 export class CoreModule {
 }

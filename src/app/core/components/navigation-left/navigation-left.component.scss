@@ -4,8 +4,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  //align-items: center;
   padding: .5rem 1rem;
+  width: 180px;
+  box-sizing: border-box;
 }
 
 ul {
@@ -22,18 +24,22 @@ ul {
     a {
       display: flex;
       background-color: grey;
-      border-radius: 25px;
-      width: 50px;
-      height: 50px;
+      padding: .5rem .75rem;
+      border-radius: 5px;
       overflow: hidden;
-      transition: border-radius 200ms ease-out;
+      grid-gap: .5rem;
+      //transition: border-radius 200ms ease-out;
 
       color: colors.$app-background-contrast;
       text-decoration: none;
 
+      &.active {
+        background-color: dimgrey;
+      }
       &:hover {
+        background-color: dimgrey;
         //background-color: colors.$hover-background;
-        border-radius: 18px;
+        //border-radius: 18px;
       }
     }
   }

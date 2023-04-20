@@ -4,12 +4,15 @@
   "type": "module",
   "scripts": {
     "translator": "npx tsc --project tsconfig.json && node translator.js \"D:\\_workspaces\\cpp_ws\\taiga\\src\"",
-    "translator2": "npx tsc --project tsconfig.json && node translator2.js taiga \"D:\\_workspaces\\cpp_ws\\taiga\\src\""
+    "translator2": "npx tsc --project tsconfig.json && node translator2.js taiga \"D:\\_workspaces\\cpp_ws\\taiga\\src\"",
+    "openapiRefactor": "npx tsc --project tsconfig.json && node openapiRefactor.js \"D:\\_workspaces\\cpp_ws\\taiga_electron\\src\\assets\\kitsu_swagger.yaml\" \"D:\\_workspaces\\cpp_ws\\taiga_electron\\src\\assets\\refactor\" kitsu"
   },
   "dependencies": {
+    "prompt-sync": "4.2.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
+    "@types/prompt-sync": "4.2.0",
     "@types/node": "18.14.0",
     "@typescript-eslint/eslint-plugin": "5.48.0",
     "@typescript-eslint/parser": "5.48.0",

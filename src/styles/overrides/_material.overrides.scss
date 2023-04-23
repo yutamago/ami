@@ -1,0 +1,9 @@
+@use 'styles/taiga/colors';
+
+.mdc-tab {
+  min-width: 0 !important;
+}
+
+.mat-mdc-table {
+  background: colors.$main-outlet-background !important;
+}

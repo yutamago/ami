@@ -1,4 +1,4 @@
-@use "styles/colors";
+@use "styles/taiga/colors";
 
 :host {
   display: flex;
@@ -13,16 +13,19 @@
 .main-area {
   display: flex;
   flex-grow: 1;
+  flex-shrink: 1;
+  overflow: hidden;
 }
 
 .main-outlet {
   height: 100%;
   flex-grow: 1;
+  overflow: hidden;
 
   background-color: colors.$main-outlet-background;
   color: colors.$main-outlet-background-contrast;
 
-  :nth-child(2) {
+  &::ng-deep > :nth-child(2) {
     height: 100%;
     width: 100%;
   }

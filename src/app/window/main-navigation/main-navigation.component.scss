@@ -1,0 +1,188 @@
+@use "styles/taiga/colors";
+
+$selected-menu-item-bg: rgba(0,0,0,.4);
+$selected-menu-item-fg: #eda31a;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  box-sizing: border-box;
+
+  &.is-electron {
+    padding-top: 6px;
+  }
+}
+
+ul.main-nav {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+
+  font-size: 13px;
+
+  a {
+    $menu-item-height: 42px;
+
+    display: flex;
+    position: relative;
+    height: $menu-item-height;
+    padding: .5rem 2rem .5rem 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    grid-gap: .5rem;
+    align-items: center;
+
+    > :first-child {
+      margin-left: 1.5rem;
+    }
+
+    //transition: border-radius 200ms ease-out;
+
+    color: colors.$app-background-contrast;
+    text-decoration: none;
+
+    &.active {
+      background-color: $selected-menu-item-bg;
+      color: $selected-menu-item-fg;
+
+      &::after {
+        content: '';
+        height: $menu-item-height;
+        width: 6px;
+        margin-top: -1rem;
+        margin-bottom: -1rem;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        background-color: $selected-menu-item-fg;
+        position: absolute;
+      }
+    }
+
+    &:hover {
+      background-color: $selected-menu-item-bg;
+      //background-color: colors.$hover-background;
+      //border-radius: 18px;
+    }
+
+    &:not(.active) .anime-manga-toggle {
+      display: none;
+    }
+  }
+}
+
+.now-playing {
+  $cover-size: 113px;
+
+  display: flex;
+  height: $cover-size;
+  font-size: 13px;
+  background-color: $selected-menu-item-bg;
+
+  &-cover {
+    height: $cover-size;
+    width: $cover-size;
+    background-color: #000000;
+    flex-shrink: 0;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: .5rem;
+
+    &-title { flex-grow: 1; }
+    &-episode {}
+    &-progress {}
+
+    > * {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+}
+
+.user-area {
+  $pfp-size: 40px;
+
+  display: flex;
+  align-items: center;
+  grid-gap: .5rem;
+  padding: 0 1rem;
+  height: 58px;
+  background-color: #2B2B2B;
+
+  &-pfp {
+    height: $pfp-size;
+    width: $pfp-size;
+    border-radius: calc($pfp-size / 2);
+    background-position: center;
+    background-size: contain;
+  }
+
+  &-name {
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    &.active {
+      color: $selected-menu-item-fg;
+    }
+  }
+}
+
+
+.anime-manga-toggle {
+  position: absolute;
+  right: 1rem;
+
+  display: flex;
+  border-radius: 100px;
+  overflow: hidden;
+  //font-weight: bold;
+  cursor: pointer;
+  //font-size: 14px;
+  //font-family: Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--mdc-typography-button-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+  font-size: var(--mdc-typography-button-font-size, 14px);
+  font-weight: var(--mdc-typography-button-font-weight, 500);
+  letter-spacing: var(--mdc-typography-button-letter-spacing, 0.0892857143em);
+
+  .left, .right {
+    background-color: grey;
+    color: white;
+    user-select: none;
+
+    &.active {
+      background-color: #EDA31A;
+      color: rgba(0, 0, 0, .83);
+    }
+    &:not(.active):hover {
+      background-color: rgba(128, 128, 128, 0.73);
+    }
+  }
+
+  .left {
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+    padding: 0.4rem 0.7rem 0.4rem 0.8rem;
+  }
+
+  .right {
+    margin-left: -.5rem;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+    padding: .4rem .8rem .4rem .7rem;
+  }
+}

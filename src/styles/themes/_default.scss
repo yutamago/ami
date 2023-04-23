@@ -2,13 +2,49 @@
 
 @include mat.core();
 
-$my-primary: mat.define-palette(mat.$indigo-palette, 500);
+$primary-palette: (
+  50 : #fdf4e4,
+  100 : #fae3ba,
+  200 : #f6d18d,
+  300 : #f2bf5f,
+  400 : #f0b13c,
+  500 : #eda31a,
+  600 : #eb9b17,
+  700 : #e89113,
+  800 : #e5880f,
+  900 : #e07708,
+  A100 : #ffffff,
+  A200 : #ffe9d6,
+  A400 : #ffcea3,
+  A700 : #ffc18a,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+
+
+
+$my-primary: mat.define-palette($primary-palette, 500);
 $my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The "warn" palette is optional and defaults to red if not specified.
 $my-warn: mat.define-palette(mat.$red-palette);
 
-$my-theme: mat.define-light-theme((
+$my-theme: mat.define-dark-theme((
   color: (
     primary: $my-primary,
     accent: $my-accent,

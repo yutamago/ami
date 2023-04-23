@@ -1,0 +1,19 @@
+<h2 class="label">{{label}}</h2>
+<div class="items">
+  <div class="item" *ngFor="let item of items">
+    <div class="item-thumbnail"
+         [style.background-image]="item.thumbnail ? 'url(' + item.thumbnail + ')' : undefined"
+    ></div>
+    <div class="item-text">
+      <div class="item-text-title">
+        {{item.title}}
+      </div>
+      <div class="item-text-subtitle" *ngIf="item.subtitle && item.subtitle.trim().length > 0">
+        {{item.subtitle}}
+      </div>
+      <div class="item-text-episode" *ngIf="item.subtitle && item.episodeNumber.trim().length > 0">
+        {{item.episodeNumber}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<table mat-table [dataSource]="dataSource" aria-label="Media Items">
+
+  <!-- Select Column -->
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef class="col-select">
+      <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                    color="primary"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                    [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    color="primary"
+                    (change)="selectRow(row, $event)"
+                    [checked]="selection.isSelected(row)"
+                    [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+  <!-- Title Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let item"> {{item.title}} </td>
+  </ng-container>
+
+  <!-- Progress Column -->
+  <ng-container matColumnDef="progress">
+    <th mat-header-cell *matHeaderCellDef>Progress</th>
+    <td mat-cell *matCellDef="let item"><app-progress-cell [item]="item"></app-progress-cell></td>
+  </ng-container>
+
+  <!-- Rating Column -->
+  <ng-container matColumnDef="rating">
+    <th mat-header-cell *matHeaderCellDef>Rating</th>
+    <td mat-cell *matCellDef="let item"> {{item.rating}} </td>
+  </ng-container>
+
+  <!-- Avg Column -->
+  <ng-container matColumnDef="avgRating">
+    <th mat-header-cell *matHeaderCellDef>Avg</th>
+    <td mat-cell *matCellDef="let item"> {{item.avgRating}} </td>
+  </ng-container>
+
+  <!-- Type Column -->
+  <ng-container matColumnDef="mediaType">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let item"> {{item.mediaType}} </td>
+  </ng-container>
+
+  <!-- Season Column -->
+  <ng-container matColumnDef="season">
+    <th mat-header-cell *matHeaderCellDef>Season</th>
+    <td mat-cell *matCellDef="let item"> {{item.season}} </td>
+  </ng-container>
+
+  <!-- Started Column -->
+  <ng-container matColumnDef="started">
+    <th mat-header-cell *matHeaderCellDef>Started</th>
+    <td mat-cell *matCellDef="let item"> {{item.started}} </td>
+  </ng-container>
+
+  <!-- Completed Column -->
+  <ng-container matColumnDef="completed">
+    <th mat-header-cell *matHeaderCellDef>Completed</th>
+    <td mat-cell *matCellDef="let item"> {{item.completed}} </td>
+  </ng-container>
+
+  <!-- Last Updated Column -->
+  <ng-container matColumnDef="lastUpdated">
+    <th mat-header-cell *matHeaderCellDef>Last Updated</th>
+    <td mat-cell *matCellDef="let item"> {{item.lastUpdated}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.active]="row === activeRow"
+    (click)="activeRow = row"
+  ></tr>
+</table>

@@ -1,0 +1,36 @@
+<div class="tab-row">
+  <nav class="tab-row-tabs" mat-tab-nav-bar [tabPanel]="tabPanel" [mat-stretch-tabs]="false">
+    <a mat-tab-link *ngFor="let tabStateItem of tabStateList"
+       [active]="tabState === tabStateItem.id"
+       (click)="tabState = tabStateItem.id"
+    >{{tabStateItem.label}}</a>
+  </nav>
+  <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+  <div class="tab-row-settings">
+    <div class="anime-manga-toggle" mat-ripple
+         [matRippleRadius]="100"
+         [matRippleUnbounded]="true"
+    >
+      <div class="left" [class.active]="animeMangaToggle === AnimeMangaToggle.Anime" (click)="animeMangaToggle = AnimeMangaToggle.Anime">Anime</div>
+      <div class="right" [class.active]="animeMangaToggle === AnimeMangaToggle.Manga" (click)="animeMangaToggle = AnimeMangaToggle.Manga">Manga</div>
+    </div>
+    <button type="button" mat-icon-button (click)="viewMode = ViewMode.Grid">
+      <mat-icon [class.active]="viewMode === ViewMode.Grid" [color]="viewMode === ViewMode.Grid ? 'primary' : undefined"
+                svgIcon="apps"></mat-icon>
+    </button>
+    <button type="button" mat-icon-button (click)="viewMode = ViewMode.List">
+      <mat-icon [class.active]="viewMode === ViewMode.List" [color]="viewMode === ViewMode.List ? 'primary' : undefined"
+                svgIcon="format-list-bulleted-square"></mat-icon>
+    </button>
+  </div>
+</div>
+
+<app-library-grid class="list" *ngIf="viewMode === ViewMode.Grid" [items]="list"></app-library-grid>
+<app-library-list class="list" *ngIf="viewMode === ViewMode.List" [items]="list"></app-library-list>
+
+<!--<ul>-->
+<!--  <li>Do stuff with https://github.com/manami-project/anime-offline-database</li>-->
+<!--  <li>openApi: https://jsapi.apiary.io/apis/kitsu?_=1681950751175</li>-->
+<!--  <li>mit swagger codegen API erzeugen: https://github.com/swagger-api/swagger-codegen/releases</li>-->
+<!--</ul>-->

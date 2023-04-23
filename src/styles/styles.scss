@@ -1,5 +1,7 @@
-@use "colors";
+@use "taiga/colors";
 @use '@angular/material' as mat;
+
+@import "overrides/material.overrides";
 
 /* You can add global styles to this file, and also import other style files */
 html, body {

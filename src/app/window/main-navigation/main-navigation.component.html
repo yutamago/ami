@@ -1,0 +1,48 @@
+<ul class="main-nav">
+  <li><a routerLink="home" routerLinkActive="active"><i class="fa-solid fa-house"></i>Home</a></li>
+  <li></li>
+  <li><a routerLink="library" routerLinkActive="active"><i class="fa-solid fa-book-open"></i>Library
+    <div class="anime-manga-toggle" mat-ripple
+         [matRippleRadius]="100"
+         [matRippleUnbounded]="true"
+    >
+      <div class="left" [class.active]="animeMangaToggle === AnimeMangaToggle.Anime"
+           (click)="animeMangaToggle = AnimeMangaToggle.Anime">Anime
+      </div>
+      <div class="right" [class.active]="animeMangaToggle === AnimeMangaToggle.Manga"
+           (click)="animeMangaToggle = AnimeMangaToggle.Manga">Manga
+      </div>
+    </div>
+  </a></li>
+  <li><a routerLink="discover" routerLinkActive="active"><i class="fa-solid fa-newspaper"></i>Discover</a></li>
+  <li><a routerLink="new-releases" routerLinkActive="active"><i class="fa-solid fa-rss-square"></i>New Releases</a></li>
+  <li></li>
+  <li><a routerLink="search" routerLinkActive="active"><i class="fa-solid fa-magnifying-glass"></i>Search</a></li>
+</ul>
+
+<div class="now-playing">
+  <div class="now-playing-cover"></div>
+  <div class="now-playing-content">
+    <div class="now-playing-content-title" title="Demon Slayer: Kimetsu no Yaiba">Demon Slayer: Kimetsu no Yaiba</div>
+    <div class="now-playing-content-episode" title="S4 E2 - Yoriichi Type Zero">S4 E2 - Yoriichi Type Zero</div>
+    <div class="now-playing-content-progress">16:23 / 24:55</div>
+  </div>
+</div>
+
+<div class="user-area">
+  <div class="user-area-pfp" style="background-image: url(https://media.kitsu.io/users/avatars/24706/large.gif)"></div>
+  <div class="user-area-name">Yuta</div>
+
+  <a mat-ripple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="20"
+     routerLink="statistics"
+     routerLinkActive="active"
+     matTooltip="Statistics"
+     matTooltipShowDelay="400"
+     class="fa-solid fa-chart-line"></a>
+  <a mat-ripple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="20"
+     routerLink="settings"
+     routerLinkActive="active"
+     matTooltip="Settings"
+     matTooltipShowDelay="400"
+     class="fa-solid fa-cog"></a>
+</div>

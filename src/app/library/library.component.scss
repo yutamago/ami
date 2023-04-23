@@ -1,0 +1,71 @@
+@use 'styles/taiga/colors';
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-row {
+  display: flex;
+  //flex-direction: column-reverse;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  &-tabs {
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  &-settings {
+    display: flex;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    align-items: center;
+
+    .anime-manga-toggle {
+      display: flex;
+      border-radius: 100px;
+      overflow: hidden;
+      //font-weight: bold;
+      cursor: pointer;
+      //font-size: 14px;
+      //font-family: Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-family: var(--mdc-typography-button-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+      font-size: var(--mdc-typography-button-font-size, 14px);
+      font-weight: var(--mdc-typography-button-font-weight, 500);
+      letter-spacing: var(--mdc-typography-button-letter-spacing, 0.0892857143em);
+
+      .left, .right {
+        background-color: grey;
+        color: white;
+        user-select: none;
+
+        &.active {
+          background-color: #EDA31A;
+          color: rgba(0, 0, 0, .83);
+        }
+      }
+
+      .left {
+        clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+        padding: 0.4rem 0.7rem 0.4rem 0.8rem;
+      }
+
+      .right {
+        margin-left: -.5rem;
+        clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+        padding: .4rem .8rem .4rem .7rem;
+      }
+    }
+  }
+}
+
+.list {
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: auto;
+}

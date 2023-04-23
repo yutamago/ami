@@ -2,11 +2,17 @@ import {Component, HostBinding, inject} from '@angular/core';
 import { ElectronService } from './core';
 import { TranslateService } from '@ngx-translate/core';
 import { APP_CONFIG } from '../environments/environment';
+import {MainNavigationComponent} from "./window/main-navigation/main-navigation.component";
+import {WindowHandleBarComponent} from "./window/window-handle-bar/window-handle-bar.component";
+import {RouterOutlet} from "@angular/router";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  imports: [
+  ],
 })
 export class AppComponent {
   electronService = inject(ElectronService);

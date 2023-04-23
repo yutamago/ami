@@ -1,0 +1,64 @@
+$cover-width: 120px;
+$cover-height: 170px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  padding-bottom: 1rem;
+}
+
+.label {
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 3rem;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+  width: $cover-width;
+  overflow: hidden;
+  font-size: 13px;
+  flex-shrink: 0;
+
+  &-thumbnail {
+    width: $cover-width;
+    height: $cover-height;
+    background-color: #1e1f22;
+  }
+  &-text {
+    display: flex;
+    flex-direction: column;
+    grid-gap: .5rem;
+
+    &-title {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    &-subtitle {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    &-subtitle {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+}

@@ -7,7 +7,7 @@ import { HomeComponent } from './home.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [CommonModule, SharedModule, HomeRoutingModule]
+  declarations: [],
+  imports: [CommonModule, SharedModule, HomeRoutingModule, HomeComponent]
 })
 export class HomeModule {}

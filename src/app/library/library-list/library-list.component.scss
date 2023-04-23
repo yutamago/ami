@@ -1,0 +1,24 @@
+@use 'styles/taiga/colors';
+
+.col-select {
+  width: 50px;
+}
+
+.mat-mdc-table {
+  //table-layout: fixed;
+  white-space: nowrap;
+
+  .mat-mdc-row {
+    &.active {
+      background-color: colors.$hover-background;
+    }
+
+    &:hover {
+      background-color: colors.$hover-background;
+    }
+  }
+
+  //.mat-column-title {
+  //
+  //}
+}

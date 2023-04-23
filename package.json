@@ -45,7 +45,7 @@
     "@angular/platform-browser-dynamic": "15.2.8",
     "@angular/router": "15.2.8",
     "@fortawesome/fontawesome-free": "6.4.0",
-    "apib2swagger": "1.16.1",
+    "@mdi/angular-material": "^7.2.96",
     "rxjs": "7.8.0",
     "tslib": "^2.5.0",
     "zone.js": "~0.12.0"
@@ -68,6 +68,7 @@
     "@types/node": "18.14.0",
     "@typescript-eslint/eslint-plugin": "5.48.0",
     "@typescript-eslint/parser": "5.48.0",
+    "apib2swagger": "1.16.1",
     "conventional-changelog-cli": "2.2.2",
     "electron": "23.1.0",
     "electron-builder": "23.6.0",

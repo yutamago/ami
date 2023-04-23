@@ -37,6 +37,14 @@ try {
     if (settings.maximized) {
       win.maximize();
     }
+    try {
+      win.on('close', () => {
+        MainUtil.saveSettings(win);
+      });
+    } catch (e) {
+      // Catch Error
+      // throw e;
+    }
 
   }, 400));
 

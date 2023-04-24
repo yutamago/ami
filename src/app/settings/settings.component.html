@@ -1,1 +1,22 @@
-<p>settings works!</p>
+<h2>Kitsu.io Login</h2>
+
+<form (ngSubmit)="loginKitsu()" *ngIf="!authService.isLoggedIn; else userDataTmpl">
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input name="username" matInput [(ngModel)]="username" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input name="password" type="password" matInput [(ngModel)]="password" required>
+  </mat-form-field>
+  <button mat-button color="primary" type="submit">Login</button>
+<!--  <button mat-button color="primary" type="button" (click)="authService.checkIfLoggedIn()">Check if logged in</button>-->
+</form>
+
+<ng-template #userDataTmpl>
+  Logged in as: {{authService.kitsuProfile.attributes.name}}
+  <img [src]="authService.kitsuProfile.attributes.avatar.medium ?? ''">
+  <button mat-button type="button" (click)="logoutKitsu()">Logout</button>
+<!--  <pre>{{authService.kitsuProfile.attributes | json}}</pre>-->
+</ng-template>
+

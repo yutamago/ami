@@ -17,6 +17,9 @@ import {AppComponent} from './app.component';
 import {WindowHandleBarComponent} from "./window/window-handle-bar/window-handle-bar.component";
 import {MainNavigationComponent} from "./window/main-navigation/main-navigation.component";
 import {MatIconModule, MatIconRegistry} from "@angular/material/icon";
+import {OAuthModule, OAuthStorage} from "angular-oauth2-oidc";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import safeStorage = Electron.Main.safeStorage;
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,15 +38,24 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
     HomeModule,
     AppRoutingModule,
     MatIconModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: httpLoaderFactory,
         deps: [HttpClient]
       }
+    }),
+    OAuthModule.forRoot({
+      resourceServer: {
+        sendAccessToken: true,
+        allowedUrls: []
+      }
     })
   ],
-  providers: [],
+  providers: [
+    {provide: OAuthStorage, useFactory: oAuthStorageFactory}
+  ],
   exports: [],
   bootstrap: [AppComponent]
 })
@@ -53,4 +65,9 @@ export class AppModule {
       domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg')
     );
   }
+}
+
+
+export function oAuthStorageFactory(): OAuthStorage {
+  return localStorage;
 }

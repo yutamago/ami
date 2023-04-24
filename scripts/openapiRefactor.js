@@ -60,7 +60,7 @@ function extractResourcesFromPath(content, refName, targetDir) {
     const resourceBasePath = Array.from(Array(dirDepth).keys()).map(() => '../').join('') + 'resources';
     const resourcePath = resourceBasePath + '/' + name + '/';
     const resourceErrorPath = resourceBasePath + '/error/';
-    const methods = ['get', 'post', 'delete', 'put'];
+    const methods = ['get', 'post', 'delete', 'put', 'patch'];
     for (const method of methods) {
         if (method !== 'get')
             continue; // TODO

@@ -32,17 +32,20 @@
               { "glob": "mdi.svg", "input": "node_modules/@mdi/angular-material", "output": "./assets" }
             ],
             "styles": [
-              "src/styles/styles.scss",
-              "node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.css",
-              "node_modules/@fortawesome/fontawesome-free/css/solid.css",
-              "node_modules/@fortawesome/fontawesome-free/css/regular.css",
-              "node_modules/@fortawesome/fontawesome-free/css/brands.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/solid.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/regular.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/brands.min.css",
+
               {
                 "input": "src/styles/themes/_default.scss",
                 "inject": true,
                 "bundleName": "default-theme"
-              }
+              },
+
+              "src/styles/styles.scss"
             ],
             "scripts": [],
             "customWebpackConfig": {
@@ -153,16 +156,20 @@
             "inlineStyleLanguage": "scss",
             "scripts": [],
             "styles": [
-              "src/styles/styles.scss",
-              "node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
-              "node_modules/@fortawesome/fontawesome-free/css/solid.css",
-              "node_modules/@fortawesome/fontawesome-free/css/regular.css",
-              "node_modules/@fortawesome/fontawesome-free/css/brands.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/solid.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/regular.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/brands.min.css",
+
               {
                 "input": "src/styles/themes/_default.scss",
                 "inject": true,
                 "bundleName": "default-theme"
-              }
+              },
+
+              "src/styles/styles.scss"
             ],
             "assets": [
               "src/favicon.ico",

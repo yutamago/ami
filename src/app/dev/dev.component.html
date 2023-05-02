@@ -1,0 +1,14 @@
+<div class="kitsu-box">
+  <form (ngSubmit)="loginKitsu()" *ngIf="!authService.isLoggedIn; else userDataTmpl">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input name="username" matInput [(ngModel)]="username" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input name="password" type="password" matInput [(ngModel)]="password" required>
+    </mat-form-field>
+    <button mat-button color="primary" type="submit">Login</button>
+    <!--  <button mat-button color="primary" type="button" (click)="authService.checkIfLoggedIn()">Check if logged in</button>-->
+  </form>
+</div>

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { KitsuUserService } from './kitsu-user.service';
+import { KitsuUsersService } from './kitsu-users.service';
 
-describe('KitsuUserService', () => {
-  let service: KitsuUserService;
+describe('KitsuUsersService', () => {
+  let service: KitsuUsersService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(KitsuUserService);
+    service = TestBed.inject(KitsuUsersService);
   });
 
   it('should be created', () => {

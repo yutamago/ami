@@ -1,6 +1,7 @@
-import {inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {lastValueFrom} from "rxjs";
+import {BehaviorSubject, lastValueFrom} from "rxjs";
+import {KitsuConfig} from "../kitsu.config";
 
 const RefreshTokenNSecondsBeforeExpiry = 60;
 
@@ -12,8 +13,8 @@ const KitsuOAuthConfig = {
   accessTokenExpirationStorageKey: KitsuOauthStorageBase + 'accessTokenExpiration',
   refreshTokenStorageKey: KitsuOauthStorageBase + 'refreshToken',
 
-  tokenEndpoint: 'https://kitsu.io/api/oauth/token',
-  clientId: 'dd031b32d2f56c990b1425efe6c42ad847e7fe3ab46bf1299f05ecd856bdb7dd',
+  tokenEndpoint: KitsuConfig.OAuthBaseUrl + 'token',
+  clientId: KitsuConfig.OAuthClientId,
 }
 
 type KitsuLoginResponse = {
@@ -40,63 +41,61 @@ type KitsuLoginErrorResponse = {
 @Injectable({
   providedIn: 'root'
 })
-export class KitsuAuthService {
-  private readonly http = inject(HttpClient);
-
-  protected accessToken: string | null = null;
-  protected accessTokenCreatedAt: number | null = null;
-  protected accessTokenExpiration: number | null = null;
-  protected refreshToken: string | null = null;
+export class KitsuOAuthService {
+  accessToken$ = new BehaviorSubject<string | null>(null);
+  accessTokenCreatedAt$ = new BehaviorSubject<number | null>(null);
+  accessTokenExpiration$ = new BehaviorSubject<number | null>(null);
+  refreshToken$ = new BehaviorSubject<string | null>(null);
 
   protected refreshTimeout?: string | number | NodeJS.Timeout;
 
   public get authorizationHeader(): HttpHeaders | null {
-    if (!this.accessToken) return null;
+    if (!this.accessToken$.value) return null;
 
     return new HttpHeaders({
-      'Authorization': 'Bearer ' + this.accessToken,
+      'Authorization': 'Bearer ' + this.accessToken$.value,
       'Accept': 'application/vnd.api+json',
       'Content-Type': 'application/vnd.api+json',
     });
   }
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.loadAccessTokenFromStorage();
     this.setupAutoRefresh();
   }
 
   protected get accessTokenRefreshTime(): number | null {
-    if (this.accessTokenExpiration === null)
+    if (this.accessTokenExpiration$.value === null)
       return null;
 
-    return this.accessTokenExpiration - RefreshTokenNSecondsBeforeExpiry;
+    return this.accessTokenExpiration$.value - RefreshTokenNSecondsBeforeExpiry;
   }
 
   protected get now() {
     return Date.now() / 1000;
   }
 
-  public get hasValidAccessToken() {
-    return this.accessToken &&
-      this.accessToken.length > 0 &&
-      this.accessTokenExpiration &&
-      this.accessTokenExpiration > this.now
+  public get hasValidAccessToken(): boolean {
+    return this.accessToken$.value !== null && this.accessToken$.value !== undefined &&
+      this.accessToken$.value.length > 0 &&
+      this.accessTokenExpiration$.value !== null && this.accessTokenExpiration$.value !== undefined &&
+      this.accessTokenExpiration$.value > this.now
   }
 
   public get canRefreshAccessToken() {
-    return this.refreshToken && this.refreshToken.length > 0;
+    return this.refreshToken$.value && this.refreshToken$.value.length > 0;
   }
 
 
   protected loadAccessTokenFromStorage() {
-    this.accessToken = localStorage.getItem(KitsuOAuthConfig.accessTokenStorageKey);
-    this.refreshToken = localStorage.getItem(KitsuOAuthConfig.refreshTokenStorageKey);
+    this.accessToken$.next(localStorage.getItem(KitsuOAuthConfig.accessTokenStorageKey));
+    this.refreshToken$.next(localStorage.getItem(KitsuOAuthConfig.refreshTokenStorageKey));
 
     const accessTokenCreatedAt = localStorage.getItem(KitsuOAuthConfig.accessTokenCreatedAtStorageKey);
-    this.accessTokenCreatedAt = accessTokenCreatedAt !== null ? Number.parseInt(accessTokenCreatedAt) : null;
+    this.accessTokenCreatedAt$.next(accessTokenCreatedAt !== null ? Number.parseInt(accessTokenCreatedAt) : null);
 
     const accessTokenExpiration = localStorage.getItem(KitsuOAuthConfig.accessTokenExpirationStorageKey);
-    this.accessTokenExpiration = accessTokenExpiration !== null ? Number.parseInt(accessTokenExpiration) : null;
+    this.accessTokenExpiration$.next(accessTokenExpiration !== null ? Number.parseInt(accessTokenExpiration) : null);
   }
 
   protected saveAccessTokenToStorage(loginResponse: KitsuLoginResponse) {
@@ -162,7 +161,7 @@ export class KitsuAuthService {
     try {
       const refreshResponse = await lastValueFrom(this.http.post<KitsuLoginResponse>(KitsuOAuthConfig.tokenEndpoint, {
           grant_type: 'refresh_token',
-          refresh_token: this.refreshToken,
+          refresh_token: this.refreshToken$.value,
         },
         {
           headers: new HttpHeaders({
@@ -212,9 +211,9 @@ export class KitsuAuthService {
   public clearToken() {
     this.clearAutoRefresh();
     this.resetAccessTokenToStorage();
-    this.accessToken = null;
-    this.accessTokenCreatedAt = null;
-    this.accessTokenExpiration = null;
-    this.refreshToken = null;
+    this.accessToken$.next(null);
+    this.accessTokenCreatedAt$.next(null);
+    this.accessTokenExpiration$.next(null);
+    this.refreshToken$.next(null);
   }
 }

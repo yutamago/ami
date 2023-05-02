@@ -16,3 +16,9 @@ html, body {
 }
 
 
+:root {
+  --bs-body-color: colors.$app-background-contrast !important;
+  --bs-body-bg: colors.$app-background !important;
+  --bs-body-font-family: Arial, Helvetica, sans-serif !important;
+  --bs-body-line-height: 1 !important;
+}

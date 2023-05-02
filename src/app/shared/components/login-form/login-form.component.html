@@ -1,0 +1,24 @@
+<form (ngSubmit)="clickLogin.emit()" *ngIf="!isLoggedIn; else isLoggedInTmpl" class="d-flex flex-column">
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input name="username" matInput [(ngModel)]="username" (ngModelChange)="usernameChange.emit($event)" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input name="password" type="password" matInput [(ngModel)]="password" (ngModelChange)="passwordChange.emit($event)" required>
+  </mat-form-field>
+  <div>
+    <button mat-button color="primary" type="submit">Login</button>
+  </div>
+
+</form>
+
+<ng-template #isLoggedInTmpl>
+  <div class="d-flex flex-column">
+    <div>Hey {{userInfo?.attributes?.name}}, you're currently logged in!</div>
+    <div>
+      <button mat-button color="primary" (click)="clickLogout.emit()">Logout</button>
+    </div>
+
+  </div>
+</ng-template>

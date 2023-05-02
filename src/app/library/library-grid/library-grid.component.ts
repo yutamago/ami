@@ -1,7 +1,7 @@
 import {Component, inject, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MediaItem} from "../library.component";
-import {AuthService} from "../services/auth.service";
+import {AuthService} from "../../apis/general/services/auth.service";
 import {MatButtonModule} from "@angular/material/button";
 
 @Component({

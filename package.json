@@ -1,7 +1,7 @@
 {
-  "name": "taiga-electron",
-  "version": "1.0.0",
-  "description": "A new take on Taiga, the popular anime tracker",
+  "name": "ami",
+  "version": "0.0.1",
+  "description": "A tool to track your Anime watchlist. Designed to feel modern and fresh.",
   "homepage": "https://github.com/yutamago/taiga-electron",
   "author": {
     "name": "yutamago"

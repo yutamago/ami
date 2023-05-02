@@ -1,6 +1,7 @@
 export enum ResourceTypesEnum {
   anime = 'anime',
   blocks = 'blocks',
+  castings = 'castings',
   categories = 'categories',
   chapters = 'chapters',
   characters = 'characters',
@@ -9,10 +10,13 @@ export enum ResourceTypesEnum {
   favorites = 'favorites',
   followers = 'followers',
   following = 'following',
+  genres = 'genres',
   groups = 'groups',
+  installments = 'installments',
   libraryEntries = 'libraryEntries',
   linkedAccounts = 'linkedAccounts',
   manga = 'manga',
+  mappings = 'mappings',
   media = 'media',
   mediaRelationships = 'mediaRelationships',
   notificationSettings = 'notificationSettings',
@@ -31,5 +35,8 @@ export enum ResourceTypesEnum {
   userRoles = 'userRoles',
   users = 'users',
   videos = 'videos',
-  waifu = 'waifu'
+  waifu = 'waifu',
+  animeProductions = 'animeProductions',
+  animeCharacters = 'animeCharacters',
+  animeStaff = 'animeStaff',
 }

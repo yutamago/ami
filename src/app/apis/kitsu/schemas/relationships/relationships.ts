@@ -106,3 +106,47 @@ export type VideosRelationship = {
 export type WaifuRelationship = {
   waifu?: Relationship<ResourceTypesEnum.waifu>;
 }
+export type GenresRelationship = {
+  genres?: Relationship<ResourceTypesEnum.genres>;
+}
+export type CastingsRelationship = {
+  genres?: Relationship<ResourceTypesEnum.castings>;
+}
+export type InstallmentsRelationship = {
+  genres?: Relationship<ResourceTypesEnum.installments>;
+}
+export type MappingsRelationship = {
+  genres?: Relationship<ResourceTypesEnum.mappings>;
+}
+export type AnimeProductionsRelationship = {
+  genres?: Relationship<ResourceTypesEnum.animeProductions>;
+}
+export type AnimeCharactersRelationship = {
+  genres?: Relationship<ResourceTypesEnum.animeCharacters>;
+}
+export type AnimeStaffRelationship = {
+  genres?: Relationship<ResourceTypesEnum.animeStaff>;
+}
+
+
+export type MediaRelationships =
+  CastingsRelationship &
+  CategoriesRelationship &
+  CharactersRelationship &
+  GenresRelationship &
+  InstallmentsRelationship &
+  MappingsRelationship &
+  MediaRelationshipsRelationship &
+  ProductionsRelationship &
+  QuotesRelationship &
+  ReviewsRelationship &
+  StaffRelationship;
+
+export type BaseEpisodicRelationships = EpisodesRelationship;
+
+export type AnimeRelationships =
+  BaseEpisodicRelationships &
+  StreamingLinksRelationship &
+  AnimeProductionsRelationship &
+  AnimeCharactersRelationship &
+  AnimeStaffRelationship;

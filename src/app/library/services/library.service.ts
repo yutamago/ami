@@ -1,6 +1,5 @@
-import {inject, Injectable} from '@angular/core';
-import {AuthConfig} from "angular-oauth2-oidc";
-import {AuthService} from "../../apis/general/services/auth.service";
+import {inject, Injectable, OnInit} from '@angular/core';
+import {KitsuAnimeService} from "../../apis/kitsu/services/kitsu-anime.service";
 
 
 @Injectable({
@@ -8,9 +7,17 @@ import {AuthService} from "../../apis/general/services/auth.service";
 })
 export class LibraryService {
 
-
+  kitsuAnimeService = inject(KitsuAnimeService);
 
 
   constructor() {
+    this.init().then();
   }
+
+  private async init(): Promise<void> {
+    const anime = await this.kitsuAnimeService.getMany();
+    console.log('Loaded Animes: ', anime.data.map(x => x.attributes?.canonicalTitle))
+  }
+
+
 }

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
@@ -6,6 +6,7 @@ import {MatRippleModule} from "@angular/material/core";
 import {NgForOf, NgIf} from "@angular/common";
 import {LibraryGridComponent} from "./library-grid/library-grid.component";
 import {LibraryListComponent} from "./library-list/library-list.component";
+import {LibraryService} from "./services/library.service";
 
 enum TabState {
   All,
@@ -62,6 +63,8 @@ export type MediaItem = {
   standalone: true
 })
 export class LibraryComponent {
+  libraryService = inject(LibraryService);
+
   tabState: TabState = TabState.All;
   animeMangaToggle: AnimeMangaToggle = AnimeMangaToggle.Anime;
   viewMode: ViewMode = ViewMode.List;

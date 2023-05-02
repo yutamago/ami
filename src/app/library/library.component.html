@@ -8,13 +8,13 @@
   <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
 
   <div class="tab-row-settings">
-    <div class="anime-manga-toggle" mat-ripple
-         [matRippleRadius]="100"
-         [matRippleUnbounded]="true"
-    >
-      <div class="left" [class.active]="animeMangaToggle === AnimeMangaToggle.Anime" (click)="animeMangaToggle = AnimeMangaToggle.Anime">Anime</div>
-      <div class="right" [class.active]="animeMangaToggle === AnimeMangaToggle.Manga" (click)="animeMangaToggle = AnimeMangaToggle.Manga">Manga</div>
-    </div>
+<!--    <div class="anime-manga-toggle" mat-ripple-->
+<!--         [matRippleRadius]="100"-->
+<!--         [matRippleUnbounded]="true"-->
+<!--    >-->
+<!--      <div class="left" [class.active]="animeMangaToggle === AnimeMangaToggle.Anime" (click)="animeMangaToggle = AnimeMangaToggle.Anime">Anime</div>-->
+<!--      <div class="right" [class.active]="animeMangaToggle === AnimeMangaToggle.Manga" (click)="animeMangaToggle = AnimeMangaToggle.Manga">Manga</div>-->
+<!--    </div>-->
     <button type="button" mat-icon-button (click)="viewMode = ViewMode.Grid">
       <mat-icon [class.active]="viewMode === ViewMode.Grid" [color]="viewMode === ViewMode.Grid ? 'primary' : undefined"
                 svgIcon="apps"></mat-icon>

@@ -82,8 +82,8 @@ export class KitsuOAuthService {
       this.accessTokenExpiration$.value > this.now
   }
 
-  public get canRefreshAccessToken() {
-    return this.refreshToken$.value && this.refreshToken$.value.length > 0;
+  public get canRefreshAccessToken(): boolean {
+    return this.refreshToken$.value !== null && this.refreshToken$.value !== undefined && this.refreshToken$.value.length > 0;
   }
 
 

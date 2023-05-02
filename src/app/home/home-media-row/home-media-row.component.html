@@ -8,10 +8,10 @@
       <div class="item-text-title">
         {{item.title}}
       </div>
-      <div class="item-text-subtitle" *ngIf="item.subtitle && item.subtitle.trim().length > 0">
+      <div class="item-text-subtitle" *ngIf="item.subtitle?.trim()?.length ?? 0 > 0">
         {{item.subtitle}}
       </div>
-      <div class="item-text-episode" *ngIf="item.subtitle && item.episodeNumber.trim().length > 0">
+      <div class="item-text-episode" *ngIf="item.episodeNumber?.trim()?.length ?? 0 > 0">
         {{item.episodeNumber}}
       </div>
     </div>

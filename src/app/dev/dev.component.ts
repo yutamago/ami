@@ -2,9 +2,10 @@ import {Component, inject} from '@angular/core';
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
-import {NgIf} from "@angular/common";
+import {AsyncPipe, JsonPipe, NgIf} from "@angular/common";
 import {LoginFormComponent} from "../shared/components";
 import {AuthService} from "../apis/general/services/auth.service";
+import {KitsuOAuthService} from "../apis/kitsu/services/kitsu-o-auth.service";
 
 @Component({
   selector: 'app-dev',
@@ -16,14 +17,17 @@ import {AuthService} from "../apis/general/services/auth.service";
     MatButtonModule,
     NgIf,
     ReactiveFormsModule,
-    LoginFormComponent
+    LoginFormComponent,
+    AsyncPipe,
+    JsonPipe
   ],
   standalone: true
 })
 export class DevComponent {
-  username?: string;
-  password?: string;
+  username = '';
+  password = '';
   authService = inject(AuthService);
+  kitsuOAuthService = inject(KitsuOAuthService);
 
   async loginKitsu() {
     if (!this.username || !this.password) return;

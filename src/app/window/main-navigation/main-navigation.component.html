@@ -31,8 +31,14 @@
 </div>
 
 <div class="user-area">
-  <div class="user-area-pfp" style="background-image: url(https://media.kitsu.io/users/avatars/24706/large.gif)"></div>
-  <div class="user-area-name">Yuta</div>
+  <img class="user-area-pfp" *ngIf="(authService.kitsuProfile$ | async)?.attributes?.avatar; else defaultAvatarTmpl"
+       [ngSrc]="(authService.kitsuProfile$ | async)!.attributes!.avatar!.tiny" alt="Your avatar" [height]="40" [width]="40" priority/>
+  <ng-template #defaultAvatarTmpl>
+    <img class="user-area-pfp" ngSrc="./assets/img/default_avatar-2ec3a4e2fc39a0de55bf42bf4822272a.png" alt="Your avatar" priority
+         [height]="40" [width]="40"/>
+  </ng-template>
+
+  <div class="user-area-name">{{(authService.kitsuProfile$ | async)?.attributes?.name ?? 'Not logged in'}}</div>
 
   <a mat-ripple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="20"
      routerLink="statistics"

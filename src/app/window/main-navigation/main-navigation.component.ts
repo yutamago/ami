@@ -4,6 +4,8 @@ import {ElectronService} from "../../core";
 import {MatRippleModule} from "@angular/material/core";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {AnimeMangaToggle} from "../../library/library.component";
+import {AuthService} from "../../apis/general/services/auth.service";
+import {AsyncPipe, NgIf, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-main-navigation',
@@ -13,7 +15,10 @@ import {AnimeMangaToggle} from "../../library/library.component";
     RouterLink,
     RouterLinkActive,
     MatRippleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    AsyncPipe,
+    NgOptimizedImage,
+    NgIf
   ],
   standalone: true
 })
@@ -21,6 +26,7 @@ export class MainNavigationComponent {
   protected readonly AnimeMangaToggle = AnimeMangaToggle;
 
   electron = inject(ElectronService);
+  authService = inject(AuthService);
   animeMangaToggle: AnimeMangaToggle = AnimeMangaToggle.Anime;
 
   @HostBinding('class.is-electron') isElectron = false;

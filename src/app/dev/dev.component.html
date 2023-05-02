@@ -5,6 +5,17 @@
     (clickLogin)="loginKitsu()"
     (clickLogout)="logoutKitsu()"
     [isLoggedIn]="authService.isLoggedIn"
-    [userInfo]="authService.kitsuProfile"
+    [userInfo]="(authService.kitsuProfile$ | async) ?? undefined"
   ></app-login-form>
+  <pre>
+    Valid: {{ kitsuOAuthService.hasValidAccessToken }}
+    Can Refresh: {{ kitsuOAuthService.canRefreshAccessToken }}
+
+    Auth Header: {{ kitsuOAuthService.authorizationHeader?.keys()?.join(', ') }}
+    Access Token: {{ kitsuOAuthService.accessToken$ | async }}
+    Refresh Token: {{ kitsuOAuthService.refreshToken$ | async }}
+    AT Created At:    {{ kitsuOAuthService.accessTokenCreatedAt$ | async }}
+    AT Expiration At: {{ kitsuOAuthService.accessTokenExpiration$ | async }}
+    Now:              {{ kitsuOAuthService.now }}
+  </pre>
 </div>

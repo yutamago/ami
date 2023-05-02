@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {BehaviorSubject, lastValueFrom} from "rxjs";
 import {KitsuConfig} from "../kitsu.config";
+import {SafeTimeout} from "./kitsu-api.util";
 
 const RefreshTokenNSecondsBeforeExpiry = 60;
 
@@ -42,12 +43,14 @@ type KitsuLoginErrorResponse = {
   providedIn: 'root'
 })
 export class KitsuOAuthService {
+  debug = true;
+
   accessToken$ = new BehaviorSubject<string | null>(null);
   accessTokenCreatedAt$ = new BehaviorSubject<number | null>(null);
   accessTokenExpiration$ = new BehaviorSubject<number | null>(null);
   refreshToken$ = new BehaviorSubject<string | null>(null);
 
-  protected refreshTimeout?: string | number | NodeJS.Timeout;
+  protected refreshTimeout?: SafeTimeout;
 
   public get authorizationHeader(): HttpHeaders | null {
     if (!this.accessToken$.value) return null;
@@ -71,8 +74,8 @@ export class KitsuOAuthService {
     return this.accessTokenExpiration$.value - RefreshTokenNSecondsBeforeExpiry;
   }
 
-  protected get now() {
-    return Date.now() / 1000;
+  get now() {
+    return Math.floor(Date.now() / 1000);
   }
 
   public get hasValidAccessToken(): boolean {
@@ -88,6 +91,8 @@ export class KitsuOAuthService {
 
 
   protected loadAccessTokenFromStorage() {
+    if (this.debug) console.log('loadAccessTokenFromStorage');
+
     this.accessToken$.next(localStorage.getItem(KitsuOAuthConfig.accessTokenStorageKey));
     this.refreshToken$.next(localStorage.getItem(KitsuOAuthConfig.refreshTokenStorageKey));
 
@@ -96,17 +101,30 @@ export class KitsuOAuthService {
 
     const accessTokenExpiration = localStorage.getItem(KitsuOAuthConfig.accessTokenExpirationStorageKey);
     this.accessTokenExpiration$.next(accessTokenExpiration !== null ? Number.parseInt(accessTokenExpiration) : null);
+
+    if (this.debug) console.log('loaded AccessToken from Storage: ', {
+      accessToken$: this.accessToken$.value,
+      refreshToken$: this.refreshToken$.value,
+      accessTokenCreatedAt$: this.accessTokenCreatedAt$.value,
+      accessTokenExpiration$: this.accessTokenExpiration$.value,
+    });
   }
 
   protected saveAccessTokenToStorage(loginResponse: KitsuLoginResponse) {
+    if (this.debug) console.log('saveAccessTokenToStorage', loginResponse);
+
     const expirationDate = this.now + loginResponse.expires_in;
+    if (this.debug) console.log('saveAccessTokenToStorage; expiration: ', new Date(expirationDate * 1000));
 
     localStorage.setItem(KitsuOAuthConfig.accessTokenStorageKey, loginResponse.access_token);
     localStorage.setItem(KitsuOAuthConfig.refreshTokenStorageKey, loginResponse.refresh_token);
     localStorage.setItem(KitsuOAuthConfig.accessTokenCreatedAtStorageKey, String(loginResponse.created_at));
     localStorage.setItem(KitsuOAuthConfig.accessTokenExpirationStorageKey, String(expirationDate));
   }
+
   protected resetAccessTokenToStorage() {
+    if (this.debug) console.log('resetAccessTokenToStorage');
+
     localStorage.removeItem(KitsuOAuthConfig.accessTokenStorageKey);
     localStorage.removeItem(KitsuOAuthConfig.refreshTokenStorageKey);
     localStorage.removeItem(KitsuOAuthConfig.accessTokenCreatedAtStorageKey);
@@ -119,6 +137,8 @@ export class KitsuOAuthService {
    * @param password
    */
   async fetchAccessToken(username: string, password: string) {
+    if (this.debug) console.log('fetchAccessToken: ', username, password.split('').map(() => '*'));
+
     try {
       const loginResponse = await lastValueFrom(this.http.post<KitsuLoginResponse>(KitsuOAuthConfig.tokenEndpoint, {
           grant_type: 'password',
@@ -131,6 +151,7 @@ export class KitsuOAuthService {
           })
         }
       ));
+
       console.log('Successfully logged in: ', loginResponse);
       this.saveAccessTokenToStorage(loginResponse);
       this.loadAccessTokenFromStorage();
@@ -142,7 +163,7 @@ export class KitsuOAuthService {
       try {
         const kitsuError = JSON.parse(httpError.message) as KitsuLoginErrorResponse;
         console.log('KITSU Error: ', kitsuError);
-      } catch(err2) {
+      } catch (err2) {
         // ignore
       }
 
@@ -155,6 +176,9 @@ export class KitsuOAuthService {
    */
   public async refreshAccessToken() {
     if (!this.canRefreshAccessToken) return;
+
+    if (this.debug) console.log('refreshAccessToken');
+
 
     this.clearAutoRefresh();
 
@@ -180,7 +204,7 @@ export class KitsuOAuthService {
       try {
         const kitsuError = JSON.parse(httpError.message) as KitsuLoginErrorResponse;
         console.log('KITSU Error: ', kitsuError);
-      } catch(err2) {
+      } catch (err2) {
         // ignore
       }
 
@@ -188,7 +212,9 @@ export class KitsuOAuthService {
   }
 
   protected setupAutoRefresh() {
-    if (!this.canRefreshAccessToken) return;
+    if (!this.canRefreshAccessToken || (this.accessTokenExpiration$.value ?? 0) <= this.now) return;
+
+    if (this.debug) console.log('setupAutoRefresh');
 
     this.clearAutoRefresh();
 
@@ -196,19 +222,24 @@ export class KitsuOAuthService {
     if (refreshTime === null) return;
 
     const timeoutTime = (refreshTime - this.now) * 1000;
-    this.refreshTimeout = setTimeout(() => {
-      this.refreshAccessToken().then();
-    }, timeoutTime)
+
+    this.refreshTimeout = new SafeTimeout(async () => {
+      await this.refreshAccessToken();
+    }, timeoutTime);
   }
 
   protected clearAutoRefresh() {
     if (!this.refreshTimeout) return;
 
-    clearTimeout(this.refreshTimeout);
+    if (this.debug) console.log('clearAutoRefresh');
+
+    this.refreshTimeout.clear();
     this.refreshTimeout = undefined;
   }
 
   public clearToken() {
+    if (this.debug) console.log('clearToken');
+
     this.clearAutoRefresh();
     this.resetAccessTokenToStorage();
     this.accessToken$.next(null);

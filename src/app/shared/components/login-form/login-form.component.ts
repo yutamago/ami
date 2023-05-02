@@ -14,7 +14,7 @@ import {UsersResource} from "../../../apis/kitsu/schemas/resources/users.resourc
 })
 export class LoginFormComponent {
   @Input() isLoggedIn = false;
-  @Input() userInfo?: UsersResource | undefined;
+  @Input() userInfo: UsersResource | undefined | null;
 
   @Input() username?: string;
   @Input() password?: string;

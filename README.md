@@ -1,9 +1,9 @@
 [![Angular Logo](https://www.vectorlogo.zone/logos/angular/angular-icon.svg)](https://angular.io/) [![Electron Logo](https://www.vectorlogo.zone/logos/electronjs/electronjs-icon.svg)](https://electronjs.org/)
 
-![Maintained][maintained-badge]
-
-[//]: # ([![Make a pull request][prs-badge]][prs])
 [![License][license-badge]](LICENSE.md)
+
+![Commit Activity][commit-activity]
+![Last Commit][last-commit]
 
 [![Linux Build][linux-build-badge]][linux-build]
 [![MacOS Build][macos-build-badge]][macos-build]
@@ -17,7 +17,11 @@
 
 Ami is a tool to track your anime and manga progress, get informed about new episodes/chapters and discover new shows.
 
-## Features
+Designed to run in your browser, on desktop and mobile.
+
+Compatible with Mac, Linux and Windows.
+
+## Features (planned)
 - Detecting when you watch anime/read manga and automatically tracking your progress 
 - Notifications when new episodes or chapters are released (optional)
 - Notifications when episodes/chapters are available to stream/download (optional)
@@ -25,6 +29,55 @@ Ami is a tool to track your anime and manga progress, get informed about new epi
 - Watch anime and read manga directly from the app (no more searching for the right streaming service)
 - Download anime and manga directly from the app
 - And more!
+
+## TODO
+Ami is still in early development. Here are some of the things that are planned:
+
+- Support for major anime/manga tracking services
+  - Kitsu.io **(in progress)**
+    - ✅ Login
+    - ✅ Fetch Library
+    - Update progress
+  - AniList
+    - Login
+    - Fetch Library
+    - Update progress
+  - MyAnimeList
+    - Login
+    - Fetch Library
+    - Update progress
+- Media detection (Maybe with [Anisthesia](https://github.com/erengy/anisthesia) and [Anitomy](https://github.com/erengy/anitomy)?)
+  - In desktop applications (VLC, MPV, etc.)
+  - In streaming websites (Netflix, Crunchyroll, etc.)
+  - In media servers (Plex, Jellyfin, etc.)
+    - Local Plex ([Reddit: Is there a Plex API I can use to detect if media is playing?](https://www.reddit.com/r/PleX/comments/3dislo/is_there_a_plex_api_i_can_use_to_detect_if_media/))
+- Automatic tracking
+- Notifications
+- Downloads
+- Streaming
+- Airing times
+- Discover
+  - Popular
+  - Trending
+  - Seasons
+  - Recommendations based on your library (Maybe with [Sprout Anime Recommender](https://anime.ameo.dev/interactive-recommender))
+- Synchronize all connected tracking services with local library
+- Discord Rich Presence
+- Search (on tracking service and local library)
+- Personal Statistics
+- Multiple Themes + Customization
+- Multiple Languages
+- Unit Tests
+
+
+## Screenshots
+### Home
+<img src="screenshots/img.png" width="800" alt="Home">
+
+### Library
+<img src="screenshots/img_1.png" width="800" alt="Library">
+
+# Development
 
 ## Getting Started
 
@@ -143,7 +196,8 @@ Please refer to [HOW_TO file](./HOW_TO.md)
 Made with https://github.com/maximegris/angular-electron
 
 
-[maintained-badge]: https://img.shields.io/badge/maintained-yes-brightgreen
+[last-commit]: https://img.shields.io/github/last-commit/yutamago/ami
+[commit-activity]: https://img.shields.io/github/commit-activity/m/yutamago/ami
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license]: https://github.com/yutamago/ami/blob/main/LICENSE.md
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-red.svg

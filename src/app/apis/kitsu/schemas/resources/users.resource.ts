@@ -19,6 +19,7 @@ import {
 import {ResourceTypesEnum} from "../resource-types.enum";
 import {CoverImageResourceAttributes} from "./cover-image.resource";
 import {AvatarResourceAttributes} from "./avatar.resource";
+import {BaseResourceAttributes} from "./base.resource";
 
 export type UsersResource = KitsuIdTypeSchema<ResourceTypesEnum.users> & {
   links?: SelfLink;
@@ -26,15 +27,8 @@ export type UsersResource = KitsuIdTypeSchema<ResourceTypesEnum.users> & {
   relationships?: UsersResourceRelationships;
 }
 
-export type UsersResourceAttributes = {
-  /**
-   * ISO 8601 date and time
-   */
-  createdAt?: string;
-  /**
-   * ISO 8601 of last modification
-   */
-  updatedAt?: string;
+export type UsersResourceAttributes = BaseResourceAttributes & {
+
   /**
    * vikhyat
    */

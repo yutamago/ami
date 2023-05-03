@@ -7,6 +7,7 @@ import {NgForOf, NgIf} from "@angular/common";
 import {LibraryGridComponent} from "./library-grid/library-grid.component";
 import {LibraryListComponent} from "./library-list/library-list.component";
 import {LibraryService} from "./services/library.service";
+import {AuthService} from "../apis/general/services/auth.service";
 
 enum TabState {
   All,
@@ -64,6 +65,7 @@ export type MediaItem = {
 })
 export class LibraryComponent {
   libraryService = inject(LibraryService);
+  authService = inject(AuthService);
 
   tabState: TabState = TabState.All;
   animeMangaToggle: AnimeMangaToggle = AnimeMangaToggle.Anime;
@@ -90,4 +92,10 @@ export class LibraryComponent {
       progress: {current: 2, max: 12, downloaded: 2, available: 2}
     },
   ];
+
+  constructor() {
+    this.authService.kitsuProfile$.subscribe(async () => {
+      await this.libraryService.load();
+    })
+  }
 }

@@ -127,6 +127,21 @@ export type AnimeCharactersRelationship = {
 export type AnimeStaffRelationship = {
   genres?: Relationship<ResourceTypesEnum.animeStaff>;
 }
+export type DramaRelationship = {
+  drama?: Relationship<ResourceTypesEnum.drama>;
+}
+export type MediaReactionRelationship = {
+  mediaReaction?: Relationship<ResourceTypesEnum.mediaReaction>;
+}
+export type NextUnitRelationship = {
+  nextUnit?: Relationship<ResourceTypesEnum.nextUnit>;
+}
+export type ReviewRelationship = {
+  review?: Relationship<ResourceTypesEnum.review>;
+}
+export type UnitRelationship = {
+  unit?: Relationship<ResourceTypesEnum.unit>;
+}
 
 
 export type MediaRelationships =
@@ -150,3 +165,15 @@ export type AnimeRelationships =
   AnimeProductionsRelationship &
   AnimeCharactersRelationship &
   AnimeStaffRelationship;
+
+
+export type LibraryEntriesRelationships =
+  AnimeRelationship &
+  DramaRelationship &
+  MangaRelationship &
+  MediaReactionRelationship &
+  MediaRelationship &
+  NextUnitRelationship &
+  ReviewRelationship &
+  UnitRelationship &
+  UserRelationship;

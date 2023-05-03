@@ -39,4 +39,9 @@ export enum ResourceTypesEnum {
   animeProductions = 'animeProductions',
   animeCharacters = 'animeCharacters',
   animeStaff = 'animeStaff',
+  drama = 'drama',
+  mediaReaction = 'mediaReaction',
+  nextUnit = 'nextUnit',
+  review = 'review',
+  unit = 'unit',
 }

@@ -1,7 +1,8 @@
 [![Angular Logo](https://www.vectorlogo.zone/logos/angular/angular-icon.svg)](https://angular.io/) [![Electron Logo](https://www.vectorlogo.zone/logos/electronjs/electronjs-icon.svg)](https://electronjs.org/)
 
 ![Maintained][maintained-badge]
-[![Make a pull request][prs-badge]][prs]
+
+[//]: # ([![Make a pull request][prs-badge]][prs])
 [![License][license-badge]](LICENSE.md)
 
 [![Linux Build][linux-build-badge]][linux-build]
@@ -14,29 +15,23 @@
 
 # Introduction
 
-Bootstrap and package your project with Angular 15 and Electron 21 (Typescript + SASS + Hot Reload) for creating Desktop applications.
+Ami is a tool to track your anime and manga progress, get informed about new episodes/chapters and discover new shows.
 
-Currently runs with:
-
-- Angular v15.1.5
-- Electron v23.1.0
-
-With this sample, you can:
-
-- Run your app in a local development environment with Electron & Hot reload
-- Run your app in a production environment
-- Package your app into an executable file for Linux, Windows & Mac
-
-/!\ Hot reload only pertains to the renderer process. The main electron process is not able to be hot reloaded, only restarted.
-
-/!\ Angular CLI & Electron Builder needs Node 14 or later to work correctly.
+## Features
+- Detecting when you watch anime/read manga and automatically tracking your progress 
+- Notifications when new episodes or chapters are released (optional)
+- Notifications when episodes/chapters are available to stream/download (optional)
+- Discover new shows, catered to your taste
+- Watch anime and read manga directly from the app (no more searching for the right streaming service)
+- Download anime and manga directly from the app
+- And more!
 
 ## Getting Started
 
 *Clone this repository locally:*
 
 ``` bash
-git clone https://github.com/maximegris/angular-electron.git
+git clone https://github.com/yutamago/ami.git
 ```
 
 *Install dependencies with npm (used by Electron renderer process):*
@@ -144,37 +139,26 @@ Please note that Hot reload is only available in Renderer process.
 
 Please refer to [HOW_TO file](./HOW_TO.md)
 
-## Branch & Packages version
+## Credits
+Made with https://github.com/maximegris/angular-electron
 
-- Angular 4 & Electron 1 : Branch [angular4](https://github.com/maximegris/angular-electron/tree/angular4)
-- Angular 5 & Electron 1 : Branch [angular5](https://github.com/maximegris/angular-electron/tree/angular5)
-- Angular 6 & Electron 3 : Branch [angular6](https://github.com/maximegris/angular-electron/tree/angular6)
-- Angular 7 & Electron 3 : Branch [angular7](https://github.com/maximegris/angular-electron/tree/angular7)
-- Angular 8 & Electron 7 : Branch [angular8](https://github.com/maximegris/angular-electron/tree/angular8)
-- Angular 9 & Electron 7 : Branch [angular9](https://github.com/maximegris/angular-electron/tree/angular9)
-- Angular 10 & Electron 9 : Branch [angular10](https://github.com/maximegris/angular-electron/tree/angular10)
-- Angular 11 & Electron 12 : Branch [angular11](https://github.com/maximegris/angular-electron/tree/angular11)
-- Angular 12 & Electron 16 : Branch [angular12](https://github.com/maximegris/angular-electron/tree/angular12)
-- Angular 13 & Electron 18 : Branch [angular13](https://github.com/maximegris/angular-electron/tree/angular13)
-- Angular 14 & Electron 21 : Branch [angular14](https://github.com/maximegris/angular-electron/tree/angular14)
-- Angular 15 & Electron 22 : (main)
 
 [maintained-badge]: https://img.shields.io/badge/maintained-yes-brightgreen
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[license]: https://github.com/maximegris/angular-electron/blob/main/LICENSE.md
+[license]: https://github.com/yutamago/ami/blob/main/LICENSE.md
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-red.svg
 [prs]: http://makeapullrequest.com
 
-[linux-build-badge]: https://github.com/maximegris/angular-electron/workflows/Linux%20Build/badge.svg
-[linux-build]: https://github.com/maximegris/angular-electron/actions?query=workflow%3A%22Linux+Build%22
-[macos-build-badge]: https://github.com/maximegris/angular-electron/workflows/MacOS%20Build/badge.svg
-[macos-build]: https://github.com/maximegris/angular-electron/actions?query=workflow%3A%22MacOS+Build%22
-[windows-build-badge]: https://github.com/maximegris/angular-electron/workflows/Windows%20Build/badge.svg
-[windows-build]: https://github.com/maximegris/angular-electron/actions?query=workflow%3A%22Windows+Build%22
+[linux-build-badge]: https://github.com/yutamago/ami/workflows/Linux%20Build/badge.svg
+[linux-build]: https://github.com/yutamago/ami/actions?query=workflow%3A%22Linux+Build%22
+[macos-build-badge]: https://github.com/yutamago/ami/workflows/MacOS%20Build/badge.svg
+[macos-build]: https://github.com/yutamago/ami/actions?query=workflow%3A%22MacOS+Build%22
+[windows-build-badge]: https://github.com/yutamago/ami/workflows/Windows%20Build/badge.svg
+[windows-build]: https://github.com/yutamago/ami/actions?query=workflow%3A%22Windows+Build%22
 
-[github-watch-badge]: https://img.shields.io/github/watchers/maximegris/angular-electron.svg?style=social
-[github-watch]: https://github.com/maximegris/angular-electron/watchers
-[github-star-badge]: https://img.shields.io/github/stars/maximegris/angular-electron.svg?style=social
-[github-star]: https://github.com/maximegris/angular-electron/stargazers
-[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20angular-electron!%20https://github.com/maximegris/angular-electron%20%F0%9F%91%8D
-[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/maximegris/angular-electron.svg?style=social
+[github-watch-badge]: https://img.shields.io/github/watchers/yutamago/ami.svg?style=social
+[github-watch]: https://github.com/yutamago/ami/watchers
+[github-star-badge]: https://img.shields.io/github/stars/yutamago/ami.svg?style=social
+[github-star]: https://github.com/yutamago/ami/stargazers
+[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20angular-electron!%20https://github.com/yutamago/ami%20%F0%9F%91%8D
+[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/yutamago/ami.svg?style=social

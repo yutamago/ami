@@ -36,7 +36,7 @@ Ami is still in early development. Here are some of the things that are planned:
 - Support for major anime/manga tracking services
   - Kitsu.io **(in progress)**
     - ✅ Login
-    - **Fetch Library (50%)**
+    - **Fetch Library (70%)**
     - Update progress
   - AniList
     - Login

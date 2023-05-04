@@ -29,7 +29,7 @@ Designed to run on desktop, mobile and even in your browser.
 - Analyze your watching and reading habits
 - And more!
 
-## TODO
+## Progress
 Ami is in early development. Here are some of the things that still need to be done:
 
 - Support for major anime/manga tracking services

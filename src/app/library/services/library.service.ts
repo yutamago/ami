@@ -68,7 +68,7 @@ export class LibraryService {
     ];
 
     this.anime$.next(entries);
-    console.log('Loaded Animes: ', this.anime$.value)
+    // console.log('Loaded Animes: ', this.anime$.value)
   }
 
   private async loadAniList() {

@@ -72,10 +72,11 @@ Ami is still in early development. Here are some of the things that are planned:
 
 ## Screenshots
 ### Home
-<img src="screenshots/img.png" width="800" alt="Home">
+<a href="screenshots/home.png"><img src="screenshots/home.png" width="800" alt="Home"></a>
 
 ### Library
-<img src="screenshots/img_1.png" width="800" alt="Library">
+<a href="screenshots/library1.png"><img src="screenshots/library1.png" width="800" alt="Library"></a>
+<a href="screenshots/library2.png"><img src="screenshots/library2.png" width="800" alt="Library"></a>
 
 # Development
 

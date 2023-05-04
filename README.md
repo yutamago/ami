@@ -68,7 +68,7 @@ Ami is in early development. Here are some of the things that still need to be d
 - Multiple Languages
 - Unit Tests
 - Executables for Windows, Linux and Mac
-
+- Installer
 
 ## Screenshots
 ### Home

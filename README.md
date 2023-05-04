@@ -28,10 +28,11 @@ Compatible with Mac, Linux and Windows.
 - Discover new shows, catered to your taste
 - Watch anime and read manga directly from the app (no more searching for the right streaming service)
 - Download anime and manga directly from the app
+- Analyze your watching and reading habits
 - And more!
 
 ## TODO
-Ami is still in early development. Here are some of the things that are planned:
+Ami is in early development. Here are some of the things that still need to be done:
 
 - Support for major anime/manga tracking services
   - Kitsu.io **(in progress)**

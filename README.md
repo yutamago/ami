@@ -15,7 +15,7 @@
 
 # Introduction
 
-Ami is a tool to track your anime and manga progress, get informed about new episodes/chapters and discover new shows.
+Ami is a tool to track your anime and manga progress, get informed about new episodes/chapters and discover new shows. Kind of like [Taiga](https://github.com/erengy/taiga), but adding new features and a modern feel on top.
 
 Designed to run in your browser, on desktop and mobile.
 

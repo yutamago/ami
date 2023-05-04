@@ -19,8 +19,6 @@ Ami is a tool to track your anime and manga progress, get informed about new epi
 
 Designed to run on desktop, mobile and even in your browser.
 
-Compatible with Mac, Linux and Windows.
-
 ## Features (planned)
 - Detecting when you watch anime/read manga and automatically tracking your progress 
 - Notifications when new episodes or chapters are released (optional)
@@ -69,6 +67,7 @@ Ami is in early development. Here are some of the things that still need to be d
 - Multiple Themes + Customization
 - Multiple Languages
 - Unit Tests
+- Executables for Windows, Linux and Mac
 
 
 ## Screenshots

@@ -45,6 +45,29 @@ Ami is in early development. Here are some of the things that still need to be d
     - Login
     - Fetch Library
     - Update progress
+- Views
+  - Detail page
+  - Library **(in progress)**
+    - Sorting
+    - Filtering
+    - **Grid view (50%)**
+    - **List view (30%)**
+    - Virtual scrolling
+  - Discover
+    - Popular
+    - Trending
+    - Seasons
+    - Recommendations based on your library (Maybe with [Sprout Anime Recommender](https://anime.ameo.dev/interactive-recommender))
+  - Search (on tracking service and local library)
+  - Personal Statistics
+  - Downloads
+  - Streaming
+  - Airing times
+  - Settings
+- UI
+  - Custom Scrollbars
+  - Multiple Themes + Customization
+  - Multiple Languages
 - Media detection (Maybe with [Anisthesia](https://github.com/erengy/anisthesia) and [Anitomy](https://github.com/erengy/anitomy)?)
   - In desktop applications (VLC, MPV, etc.)
   - In streaming websites (Netflix, Crunchyroll, etc.)
@@ -52,20 +75,8 @@ Ami is in early development. Here are some of the things that still need to be d
     - Local Plex ([Reddit: Is there a Plex API I can use to detect if media is playing?](https://www.reddit.com/r/PleX/comments/3dislo/is_there_a_plex_api_i_can_use_to_detect_if_media/))
 - Automatic tracking
 - Notifications
-- Downloads
-- Streaming
-- Airing times
-- Discover
-  - Popular
-  - Trending
-  - Seasons
-  - Recommendations based on your library (Maybe with [Sprout Anime Recommender](https://anime.ameo.dev/interactive-recommender))
 - Synchronize all connected tracking services with local library
 - Discord Rich Presence
-- Search (on tracking service and local library)
-- Personal Statistics
-- Multiple Themes + Customization
-- Multiple Languages
 - Unit Tests
 - Executables for Windows, Linux and Mac
 - Installer

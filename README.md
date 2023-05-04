@@ -66,7 +66,8 @@ Ami is in early development. Here are some of the things that still need to be d
   - Settings
 - UI
   - Custom Scrollbars
-  - Multiple Themes + Customization
+  - Light Theme
+  - Custom Themes
   - Multiple Languages
 - Media detection (Maybe with [Anisthesia](https://github.com/erengy/anisthesia) and [Anitomy](https://github.com/erengy/anitomy)?)
   - In desktop applications (VLC, MPV, etc.)

@@ -9,9 +9,12 @@
 [![MacOS Build][macos-build-badge]][macos-build]
 [![Windows Build][windows-build-badge]][windows-build]
 
-[![Watch on GitHub][github-watch-badge]][github-watch]
-[![Star on GitHub][github-star-badge]][github-star]
-[![Tweet][twitter-badge]][twitter]
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=yutamago_ami&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=yutamago_ami)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=yutamago_ami&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=yutamago_ami)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=yutamago_ami&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=yutamago_ami)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=yutamago_ami&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=yutamago_ami)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=yutamago_ami&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=yutamago_ami)
+
 
 # Introduction
 

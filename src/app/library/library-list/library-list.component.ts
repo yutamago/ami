@@ -1,10 +1,11 @@
 import {Component, HostListener, Input, OnChanges, SimpleChanges} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {MediaItem} from "../library.component";
+import {CommonModule} from '@angular/common';
+// import {MediaItem} from "../library.component";
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {MatCheckboxChange, MatCheckboxModule} from "@angular/material/checkbox";
 import {SelectionModel} from "@angular/cdk/collections";
 import {ProgressCellComponent} from "./cell-components/progress-cell/progress-cell.component";
+import {AnimeModel} from "../../apis/general/models/anime.model";
 
 @Component({
   selector: 'app-library-list',
@@ -14,8 +15,8 @@ import {ProgressCellComponent} from "./cell-components/progress-cell/progress-ce
   styleUrls: ['./library-list.component.scss']
 })
 export class LibraryListComponent implements OnChanges {
-  @Input() items: MediaItem[] = [];
-  dataSource?: MatTableDataSource<MediaItem>;
+  @Input() items: AnimeModel[] = [];
+  dataSource?: MatTableDataSource<AnimeModel>;
   displayedColumns = [
     'select',
     'title',
@@ -28,17 +29,17 @@ export class LibraryListComponent implements OnChanges {
     'completed',
     'lastUpdated',
   ];
-  selection = new SelectionModel<MediaItem>(true, []);
+  selection = new SelectionModel<AnimeModel>(true, []);
 
   lastSelectionIndex?: number;
   lastSelectionMode?: boolean;
-  activeRow?: MediaItem;
+  activeRow?: AnimeModel;
 
   private isShiftPressed= false;
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['items']) {
-      this.dataSource = new MatTableDataSource<MediaItem>(this.items);
+      this.dataSource = new MatTableDataSource<AnimeModel>(this.items);
     }
   }
 
@@ -63,14 +64,14 @@ export class LibraryListComponent implements OnChanges {
   }
 
   /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: MediaItem): string {
+  checkboxLabel(row?: AnimeModel): string {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} ${row.title}`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} ${row.meta?.canonicalTitle}`;
   }
 
-  selectRow(row: MediaItem, change: MatCheckboxChange) {
+  selectRow(row: AnimeModel, change: MatCheckboxChange) {
     console.log('CHANGE: ', {
       change: change,
       isShiftPressed: this.isShiftPressed,

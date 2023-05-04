@@ -2,12 +2,7 @@ import {KitsuIdTypeSchema} from "../kitsu-id-type.schema";
 import {ResourceTypesEnum} from "../resource-types.enum";
 import {SelfLink} from "../links/self.link";
 import {BaseResourceAttributes} from "./base.resource";
-import {
-  AnimeRelationship, LibraryEntriesRelationships,
-  MangaRelationship,
-  MediaRelationship,
-  UserRelationship
-} from "../relationships/relationships";
+import {LibraryEntriesRelationships} from "../relationships/relationships";
 
 enum LibraryEntriesStatusEnum {
   completed = 'completed',

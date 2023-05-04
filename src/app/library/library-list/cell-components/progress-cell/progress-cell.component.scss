@@ -3,9 +3,15 @@
   grid-gap: .5rem;
   align-items: center;
   white-space: nowrap;
-
+  width: 100%;
 }
 
 .button {
   border-radius: 50px;
+}
+
+.progress-text {
+  flex-grow: 1;
+  justify-content: center;
+  display: inline-flex;
 }

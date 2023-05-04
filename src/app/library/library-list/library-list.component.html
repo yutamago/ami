@@ -1,9 +1,12 @@
+<!-- https://diprokon.github.io/ng-table-virtual-scroll/examples -->
+
 <table mat-table [dataSource]="dataSource ?? []" aria-label="Media Items">
 
   <!-- Select Column -->
   <ng-container matColumnDef="select">
     <th mat-header-cell *matHeaderCellDef class="col-select">
       <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                    [disableRipple]="true"
                     color="primary"
                     [checked]="selection.hasValue() && isAllSelected()"
                     [indeterminate]="selection.hasValue() && !isAllSelected()"
@@ -22,8 +25,8 @@
 
   <!-- Title Column -->
   <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef>Title</th>
-    <td mat-cell *matCellDef="let item"> {{item.title}} </td>
+    <th mat-header-cell *matHeaderCellDef style="width: 200px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">Title</th>
+    <td mat-cell *matCellDef="let item" style="width: 200px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"> {{item.meta?.canonicalTitle}} </td>
   </ng-container>
 
   <!-- Progress Column -->
@@ -35,43 +38,43 @@
   <!-- Rating Column -->
   <ng-container matColumnDef="rating">
     <th mat-header-cell *matHeaderCellDef>Rating</th>
-    <td mat-cell *matCellDef="let item"> {{item.rating}} </td>
+    <td mat-cell *matCellDef="let item"> {{item.user?.rating}} </td>
   </ng-container>
 
   <!-- Avg Column -->
   <ng-container matColumnDef="avgRating">
     <th mat-header-cell *matHeaderCellDef>Avg</th>
-    <td mat-cell *matCellDef="let item"> {{item.avgRating}} </td>
+    <td mat-cell *matCellDef="let item"> {{item.meta?.rating}}{{item.meta?.rating ? '%' : ''}} </td>
   </ng-container>
 
   <!-- Type Column -->
   <ng-container matColumnDef="mediaType">
     <th mat-header-cell *matHeaderCellDef>Type</th>
-    <td mat-cell *matCellDef="let item"> {{item.mediaType}} </td>
+    <td mat-cell *matCellDef="let item"> {{item.meta?.type}} </td>
   </ng-container>
 
   <!-- Season Column -->
   <ng-container matColumnDef="season">
     <th mat-header-cell *matHeaderCellDef>Season</th>
-    <td mat-cell *matCellDef="let item"> {{item.season}} </td>
+    <td mat-cell *matCellDef="let item"> <!--{{item.season}}--> </td>
   </ng-container>
 
   <!-- Started Column -->
   <ng-container matColumnDef="started">
     <th mat-header-cell *matHeaderCellDef>Started</th>
-    <td mat-cell *matCellDef="let item"> {{item.started}} </td>
+    <td mat-cell *matCellDef="let item"> <!--{{item.started}}--> </td>
   </ng-container>
 
   <!-- Completed Column -->
   <ng-container matColumnDef="completed">
     <th mat-header-cell *matHeaderCellDef>Completed</th>
-    <td mat-cell *matCellDef="let item"> {{item.completed}} </td>
+    <td mat-cell *matCellDef="let item"> <!--{{item.completed}}--> </td>
   </ng-container>
 
   <!-- Last Updated Column -->
   <ng-container matColumnDef="lastUpdated">
     <th mat-header-cell *matHeaderCellDef>Last Updated</th>
-    <td mat-cell *matCellDef="let item"> {{item.lastUpdated}} </td>
+    <td mat-cell *matCellDef="let item"> {{item.user?.lastProgressed}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>

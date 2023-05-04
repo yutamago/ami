@@ -52,7 +52,7 @@ export class KitsuApiUtil {
       params = this.addToHttpParams(params, parameters.include, 'include');
     }
     if (parameters.page !== undefined && parameters.page !== null) {
-      params = this.addToHttpParams(params, parameters.page, 'page');
+      params = this.addDeepObjectToHttpParams(params, parameters.page, 'page');
     }
     if (parameters.sort !== undefined && parameters.sort !== null) {
       params = this.addToHttpParams(params, parameters.sort, 'sort');

@@ -1,9 +1,9 @@
 import {Component, Input} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {MediaItem} from "../../../library.component";
+import {CommonModule} from '@angular/common';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatRippleModule} from "@angular/material/core";
+import {AnimeModel} from "../../../../apis/general/models/anime.model";
 
 @Component({
   selector: 'app-progress-cell',
@@ -13,5 +13,5 @@ import {MatRippleModule} from "@angular/material/core";
   styleUrls: ['./progress-cell.component.scss']
 })
 export class ProgressCellComponent {
-  @Input() item!: MediaItem;
+  @Input() item!: AnimeModel;
 }

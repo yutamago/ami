@@ -4,11 +4,19 @@ import {SelfRelatedLink} from "../links/self-related.link";
 
 export type Relationship<T extends ResourceTypesEnum> = {
   links?: SelfRelatedLink;
+  data?: Array<KitsuIdTypeSchema<T>> | KitsuIdTypeSchema<T>;
+}
+export type RelationshipOne<T extends ResourceTypesEnum> = {
+  links?: SelfRelatedLink;
+  data?: KitsuIdTypeSchema<T>;
+}
+export type RelationshipMany<T extends ResourceTypesEnum> = {
+  links?: SelfRelatedLink;
   data?: Array<KitsuIdTypeSchema<T>>;
 }
 
 export type AnimeRelationship = {
-  anime?: Relationship<ResourceTypesEnum.anime>;
+  anime?: RelationshipOne<ResourceTypesEnum.anime>;
 }
 export type BlocksRelationship = {
   blocks?: Relationship<ResourceTypesEnum.blocks>;

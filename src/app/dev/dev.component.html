@@ -1,11 +1,12 @@
 <div class="kitsu-box">
+  <h2>Kitsu Login</h2>
   <app-login-form
     [(username)]="username"
     [(password)]="password"
     (clickLogin)="loginKitsu()"
     (clickLogout)="logoutKitsu()"
-    [isLoggedIn]="authService.isLoggedIn"
-    [userInfo]="(authService.kitsuProfile$ | async) ?? undefined"
+    [isLoggedIn]="(authService.isLoggedInKitsu$ | async) ?? false"
+    [userInfo]="(authService.userProfile$ | async)?.profiles.kitsu ?? undefined"
   ></app-login-form>
   <pre>
     Valid: {{ kitsuOAuthService.hasValidAccessToken }}

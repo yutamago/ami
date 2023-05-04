@@ -31,14 +31,14 @@
 </div>
 
 <div class="user-area">
-  <img class="user-area-pfp" *ngIf="(authService.kitsuProfile$ | async)?.attributes?.avatar; else defaultAvatarTmpl"
-       [ngSrc]="(authService.kitsuProfile$ | async)!.attributes!.avatar!.tiny" alt="Your avatar" [height]="40" [width]="40" priority/>
+  <img class="user-area-pfp" *ngIf="(authService.userProfile$ | async)?.avatar; else defaultAvatarTmpl"
+       [ngSrc]="(authService.userProfile$ | async)?.avatar!.tiny" alt="Your avatar" [height]="40" [width]="40" priority/>
   <ng-template #defaultAvatarTmpl>
     <img class="user-area-pfp" ngSrc="./assets/img/default_avatar-2ec3a4e2fc39a0de55bf42bf4822272a.png" alt="Your avatar" priority
          [height]="40" [width]="40"/>
   </ng-template>
 
-  <div class="user-area-name">{{(authService.kitsuProfile$ | async)?.attributes?.name ?? 'Not logged in'}}</div>
+  <div class="user-area-name">{{(authService.userProfile$ | async)?.displayName ?? 'Not logged in'}}</div>
 
   <a mat-ripple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="20"
      routerLink="statistics"

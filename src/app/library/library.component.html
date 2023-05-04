@@ -26,8 +26,8 @@
   </div>
 </div>
 
-<app-library-grid class="list" *ngIf="viewMode === ViewMode.Grid" [items]="list"></app-library-grid>
-<app-library-list class="list" *ngIf="viewMode === ViewMode.List" [items]="list"></app-library-list>
+<app-library-grid *ngIf="viewMode === ViewMode.Grid" [items]="(libraryService.anime$ | async) ?? []"></app-library-grid>
+<app-library-list class="list" *ngIf="viewMode === ViewMode.List" [items]="(libraryService.anime$ | async) ?? []"></app-library-list>
 
 <!--<ul>-->
 <!--  <li>Do stuff with https://github.com/manami-project/anime-offline-database</li>-->

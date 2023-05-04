@@ -1,1 +1,10 @@
-<p>library-grid works!</p>
+<div class="item" *ngFor="let item of items">
+
+  <img *ngIf="item.meta?.posterImage; else noPosterTmpl" [ngSrc]="item.meta.posterImage" [alt]="item.meta?.canonicalTitle ?? 'Anime Poster'" [width]="110" [height]="156"/>
+  <ng-template #noPosterTmpl>
+    <div style="width: 110px; height: 156px;">No poster</div>
+  </ng-template>
+
+
+  <div class="title">{{item.meta?.canonicalTitle}}</div>
+</div>

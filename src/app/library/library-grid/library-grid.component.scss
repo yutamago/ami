@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 2rem;
+  padding: 1rem;
+  //height: 100%;
+  overflow: auto;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+  width: 110px;
+  overflow: hidden;
+
+  img {
+    border-radius: 5px;
+  }
+  .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: 13px;
+  }
+}

@@ -8,7 +8,6 @@ import {LibraryGridComponent} from "./library-grid/library-grid.component";
 import {LibraryListComponent} from "./library-list/library-list.component";
 import {LibraryService} from "./services/library.service";
 import {AuthService} from "../apis/general/services/auth.service";
-import {AnimeModel} from "../apis/general/models/anime.model";
 
 enum TabState {
   All,
@@ -29,10 +28,10 @@ enum ViewMode {
   List
 }
 
-enum MediaType {
-  TV,
-  Movie
-}
+// enum MediaType {
+//   TV,
+//   Movie
+// }
 
 // export type MediaItem = {
 //   id: string;

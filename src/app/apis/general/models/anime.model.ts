@@ -4,7 +4,6 @@
 
 import {AnimeResource} from "../../kitsu/schemas/resources/anime.resource";
 import {LibraryEntriesResource} from "../../kitsu/schemas/resources/library-entry.resource";
-import {LibraryEntries} from "../../../api/kitsu-api";
 import {formatDate} from "@angular/common";
 
 export type AnimeModel = {

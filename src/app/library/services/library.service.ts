@@ -2,11 +2,11 @@ import {inject, Injectable} from '@angular/core';
 import {KitsuLibraryEntriesService} from "../../apis/kitsu/services/kitsu-library-entries.service";
 import {AuthService} from "../../apis/general/services/auth.service";
 import {BehaviorSubject} from "rxjs";
-import {LibraryEntriesResource} from "../../apis/kitsu/schemas/resources/library-entry.resource";
 import {AnimeResource} from "../../apis/kitsu/schemas/resources/anime.resource";
 import {ResourceTypesEnum} from "../../apis/kitsu/schemas/resource-types.enum";
 import {AmiMainProfileType} from "../../apis/general/models/user.model";
 import {AnimeModel, AnimeModelTransformer} from "../../apis/general/models/anime.model";
+import {KitsuIdTypeSchema} from "../../apis/kitsu/schemas/kitsu-id-type.schema";
 
 
 @Injectable({
@@ -47,11 +47,11 @@ export class LibraryService {
 
     const libraryEntriesResources = libraryEntries.data;
 
-    const animeResourcesArray = (libraryEntries.included?.filter(x => x.type === ResourceTypesEnum.anime) ?? []) as AnimeResource[];
+    const animeResourcesArray = (libraryEntries.included?.filter((x: KitsuIdTypeSchema<ResourceTypesEnum>) => x.type === ResourceTypesEnum.anime) ?? []) as AnimeResource[];
     const animeResources = new Map(animeResourcesArray?.map(x => [x.id ?? 'null', x]) ?? []);
 
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return libraryEntriesResources.filter(x => animeResources.get(x.relationships?.anime?.data?.id ?? 0)).map(x => AnimeModelTransformer.fromKitsu(animeResources.get(x.relationships?.anime?.data?.id ?? 0)!, x));
+    return libraryEntriesResources.filter((x: any) => animeResources.get(x.relationships?.anime?.data?.id ?? 0)).map((x: any) => AnimeModelTransformer.fromKitsu(animeResources.get(x.relationships?.anime?.data?.id ?? 0)!, x));
   }
 
   private async loadKitsu() {

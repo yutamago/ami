@@ -1,6 +1,9 @@
 import { BrowserContext, ElectronApplication, Page, _electron as electron } from 'playwright';
 import { test, expect } from '@playwright/test';
-const PATH = require('path');
+
+import * as PATH from 'path';
+//
+// const PATH = require('path');
 
 test.describe('Check Home Page', async () => {
   let app: ElectronApplication;

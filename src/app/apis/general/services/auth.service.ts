@@ -57,6 +57,6 @@ export class AuthService {
  * Sends the same value again, to notify all subscribers of a change within the value object.
  * @param subject
  */
-function notify(subject: BehaviorSubject<any>) {
+function notify<T>(subject: BehaviorSubject<T>) {
   subject.next(subject.value);
 }

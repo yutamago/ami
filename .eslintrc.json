@@ -1,13 +1,13 @@
 {
   "root": true,
   "ignorePatterns": [
-    "app/**/*", // ignore nodeJs files
-    "dist/**/*",
-    "release/**/*"
+    "projects/**/*"
   ],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -30,22 +30,17 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ],
-        "@typescript-eslint/no-explicit-any": "off"
-      },
-      "parserOptions": {
-        "project": [
-          "./tsconfig.serve.json",
-          "./src/tsconfig.app.json",
-          "./src/tsconfig.spec.json",
-          "./e2e/tsconfig.e2e.json"
-        ],
-        "createDefaultProgram": true
+        ]
       }
     },
     {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
       "rules": {}
     }
   ]

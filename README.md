@@ -23,7 +23,7 @@ Ami is a tool to track your anime and manga progress, get informed about new epi
 Designed to run on desktop, mobile and even in your browser.
 
 ## Features (planned)
-- Detecting when you watch anime/read manga and automatically tracking your progress 
+- Detecting when you watch anime/read manga and automatically tracking your progress
 - Notifications when new episodes or chapters are released (optional)
 - Notifications when episodes/chapters are available to stream/download (optional)
 - Discover new shows, catered to your taste
@@ -125,8 +125,6 @@ cd app/
 npm install
 ```
 
-Why two package.json ? This project follow [Electron Builder two package.json structure](https://www.electron.build/tutorials/two-package-structure) in order to optimize final bundle and be still able to use Angular `ng add` feature.
-
 ## To build for development
 
 - **in a terminal window** -> npm start
@@ -150,12 +148,12 @@ This sample project runs in both modes (web and electron). To make this work, **
 
 There are two kind of 3rd party libraries :
 - NodeJS's one - Uses NodeJS core module (crypto, fs, util...)
-    - I suggest you add this kind of 3rd party library in `dependencies` of both `app/package.json` and `package.json (root folder)` in order to make it work in both Electron's Main process (app folder) and Electron's Renderer process (src folder).
+  - I suggest you add this kind of 3rd party library in `dependencies` of both `app/package.json` and `package.json (root folder)` in order to make it work in both Electron's Main process (app folder) and Electron's Renderer process (src folder).
 
 Please check `providers/electron.service.ts` to watch how conditional import of libraries has to be done when using NodeJS / 3rd party libraries in renderer context (i.e. Angular).
 
 - Web's one (like bootstrap, material, tailwind...)
-    - It have to be added in `dependencies` of `package.json  (root folder)`
+  - It have to be added in `dependencies` of `package.json  (root folder)`
 
 ## Add a dependency with ng-add
 
@@ -209,7 +207,7 @@ Please note that Hot reload is only available in Renderer process.
 Please refer to [HOW_TO file](./HOW_TO.md)
 
 ## Credits
-Made with https://github.com/maximegris/angular-electron
+Inspired by https://github.com/maximegris/angular-electron
 
 
 [last-commit]: https://img.shields.io/github/last-commit/yutamago/ami

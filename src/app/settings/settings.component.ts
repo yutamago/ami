@@ -4,7 +4,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
 import {AuthService} from "../apis/general/services/auth.service";
-import {LoginFormComponent} from "../shared/components";
+import {LoginFormComponent} from "../shared/components/login-form/login-form.component";
 
 @Component({
   selector: 'app-settings',

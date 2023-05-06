@@ -6,5 +6,5 @@
   (clickLogin)="loginKitsu()"
   (clickLogout)="logoutKitsu()"
   [isLoggedIn]="authService.isLoggedIn"
-  [userInfo]="authService.kitsuProfile$ | async"
+  [userInfo]="authService.userProfile$ | async"
 ></app-login-form>

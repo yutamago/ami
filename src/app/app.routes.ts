@@ -1,8 +1,6 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {PageNotFoundComponent} from './shared/components';
+import { Routes } from '@angular/router';
 
-import {HomeRoutingModule} from './home/home-routing.module';
+import {PageNotFoundComponent} from './shared/components/page-not-found/page-not-found.component';
 import {LibraryComponent} from "./library/library.component";
 import {SettingsComponent} from "./settings/settings.component";
 import {StatisticsComponent} from "./statistics/statistics.component";
@@ -10,12 +8,17 @@ import {SearchComponent} from "./search/search.component";
 import {NewReleasesComponent} from "./new-releases/new-releases.component";
 import {DiscoverComponent} from "./discover/discover.component";
 import {DevComponent} from "./dev/dev.component";
+import {HomeComponent} from "./home/home.component";
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'library',
@@ -50,13 +53,3 @@ const routes: Routes = [
     component: PageNotFoundComponent
   }
 ];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {}),
-    HomeRoutingModule,
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {
-}

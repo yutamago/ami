@@ -47,6 +47,9 @@
 
               "src/styles/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
             "scripts": [],
             "customWebpackConfig": {
               "path": "./angular.webpack.js",
@@ -54,7 +57,7 @@
             }
           },
           "configurations": {
-            "dev": {
+            "development": {
               "optimization": false,
               "outputHashing": "none",
               "sourceMap": true,
@@ -126,7 +129,7 @@
             "browserTarget": "angular-electron:build"
           },
           "configurations": {
-            "dev": {
+            "development": {
               "browserTarget": "angular-electron:build:dev"
             },
             "production": {
@@ -171,6 +174,9 @@
 
               "src/styles/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets"

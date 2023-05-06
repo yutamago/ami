@@ -32,7 +32,7 @@
 
 <div class="user-area">
   <img class="user-area-pfp" *ngIf="(authService.userProfile$ | async)?.avatar; else defaultAvatarTmpl"
-       [ngSrc]="(authService.userProfile$ | async)?.avatar!.tiny" alt="Your avatar" [height]="40" [width]="40" priority/>
+       [ngSrc]="(authService.userProfile$ | async)?.avatar?.tiny ?? ''" alt="Your avatar" [height]="40" [width]="40" priority/>
   <ng-template #defaultAvatarTmpl>
     <img class="user-area-pfp" ngSrc="./assets/img/default_avatar-2ec3a4e2fc39a0de55bf42bf4822272a.png" alt="Your avatar" priority
          [height]="40" [width]="40"/>

@@ -3,7 +3,7 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {AsyncPipe, JsonPipe, NgIf} from "@angular/common";
-import {LoginFormComponent} from "../shared/components";
+import {LoginFormComponent} from "../shared/components/login-form/login-form.component";
 import {AuthService} from "../apis/general/services/auth.service";
 import {KitsuOAuthService} from "../apis/kitsu/services/kitsu-o-auth.service";
 

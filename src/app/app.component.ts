@@ -1,25 +1,36 @@
 import {Component, HostBinding, inject} from '@angular/core';
-import {ElectronService} from './core';
-import {TranslateService} from '@ngx-translate/core';
-import {APP_CONFIG} from '../environments/environment';
+import {CommonModule} from '@angular/common';
+import {RouterOutlet} from '@angular/router';
+import {ElectronService} from "./core/services/electron/electron.service";
+import {environment} from "../environments/environment";
+import {WindowHandleBarComponent} from "./window/window-handle-bar/window-handle-bar.component";
+import {MainNavigationComponent} from "./window/main-navigation/main-navigation.component";
+import {DomSanitizer} from "@angular/platform-browser";
+import {MatIconModule, MatIconRegistry} from "@angular/material/icon";
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, WindowHandleBarComponent, MainNavigationComponent, MatIconModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   electronService = inject(ElectronService);
-  translate = inject(TranslateService);
+  // translate = inject(TranslateService);
 
   @HostBinding('class.electron')
   isElectron: boolean;
 
-  constructor() {
+  constructor(iconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
+    iconRegistry.addSvgIconSet(
+      domSanitizer.bypassSecurityTrustResourceUrl('../assets/mdi.svg')
+    );
+
     this.isElectron = this.electronService.isElectron;
 
-    this.translate.setDefaultLang('en');
-    console.log('APP_CONFIG', APP_CONFIG);
+    // this.translate.setDefaultLang('en');
+    console.log('environment', environment);
 
     if (this.isElectron) {
       console.log(process.env);

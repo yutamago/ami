@@ -15,7 +15,7 @@
 
 <ng-template #isLoggedInTmpl>
   <div class="d-flex flex-column">
-    <div>Hey {{userInfo?.attributes?.name}}, you're currently logged in!</div>
+    <div>Hey {{userInfo?.displayName}}, you're currently logged in!</div>
     <div>
       <button mat-button color="primary" (click)="clickLogout.emit()">Logout</button>
     </div>

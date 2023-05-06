@@ -1,6 +1,6 @@
 import {Component, HostBinding, inject} from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
-import {ElectronService} from "../../core";
+import {ElectronService} from "../../core/services/electron/electron.service";
 import {MatRippleModule} from "@angular/material/core";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {AnimeMangaToggle} from "../../library/library.component";

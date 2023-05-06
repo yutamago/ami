@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {UsersResource} from "../../../apis/kitsu/schemas/resources/users.resource";
+import {AmiUserProfileModel} from "../../../apis/general/models/user.model";
 
 @Component({
   selector: 'app-login-form',
@@ -14,7 +14,7 @@ import {UsersResource} from "../../../apis/kitsu/schemas/resources/users.resourc
 })
 export class LoginFormComponent {
   @Input() isLoggedIn = false;
-  @Input() userInfo: UsersResource | undefined | null;
+  @Input() userInfo: AmiUserProfileModel | undefined | null;
 
   @Input() username?: string;
   @Input() password?: string;

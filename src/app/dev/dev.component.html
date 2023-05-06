@@ -6,7 +6,7 @@
     (clickLogin)="loginKitsu()"
     (clickLogout)="logoutKitsu()"
     [isLoggedIn]="(authService.isLoggedInKitsu$ | async) ?? false"
-    [userInfo]="(authService.userProfile$ | async)?.profiles.kitsu ?? undefined"
+    [userInfo]="authService.userProfile$ | async"
   ></app-login-form>
   <pre>
     Valid: {{ kitsuOAuthService.hasValidAccessToken }}

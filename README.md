@@ -9,17 +9,18 @@
 [![MacOS Build][macos-build-badge]][macos-build]
 [![Windows Build][windows-build-badge]][windows-build]
 
-[![Watch on GitHub][github-watch-badge]][github-watch]
-[![Star on GitHub][github-star-badge]][github-star]
-[![Tweet][twitter-badge]][twitter]
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=yutamago_ami&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=yutamago_ami)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=yutamago_ami&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=yutamago_ami)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=yutamago_ami&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=yutamago_ami)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=yutamago_ami&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=yutamago_ami)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=yutamago_ami&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=yutamago_ami)
+
 
 # Introduction
 
-Ami is a tool to track your anime and manga progress, get informed about new episodes/chapters and discover new shows.
+Ami is a tool to track your anime and manga progress, get informed about new episodes/chapters and discover new shows. Kind of like [Taiga](https://github.com/erengy/taiga), but adding new features, a modern feel and more compatibility on top.
 
-Designed to run in your browser, on desktop and mobile.
-
-Compatible with Mac, Linux and Windows.
+Designed to run on desktop, mobile and even in your browser.
 
 ## Features (planned)
 - Detecting when you watch anime/read manga and automatically tracking your progress 
@@ -28,15 +29,16 @@ Compatible with Mac, Linux and Windows.
 - Discover new shows, catered to your taste
 - Watch anime and read manga directly from the app (no more searching for the right streaming service)
 - Download anime and manga directly from the app
+- Analyze your watching and reading habits
 - And more!
 
-## TODO
-Ami is still in early development. Here are some of the things that are planned:
+## Progress
+Ami is in early development. Here are some of the things that still need to be done:
 
 - Support for major anime/manga tracking services
   - Kitsu.io **(in progress)**
     - ✅ Login
-    - **Fetch Library (50%)**
+    - **Fetch Library (70%)**
     - Update progress
   - AniList
     - Login
@@ -46,6 +48,30 @@ Ami is still in early development. Here are some of the things that are planned:
     - Login
     - Fetch Library
     - Update progress
+- Views
+  - Detail page
+  - Library **(in progress)**
+    - Sorting
+    - Filtering
+    - **Grid view (50%)**
+    - **List view (30%)**
+    - Virtual scrolling
+  - Discover
+    - Popular
+    - Trending
+    - Seasons
+    - Recommendations based on your library (Maybe with [Sprout Anime Recommender](https://anime.ameo.dev/interactive-recommender))
+  - Search (on tracking service and local library)
+  - Personal Statistics
+  - Downloads
+  - Streaming
+  - Airing times
+  - Settings
+- UI
+  - Custom Scrollbars
+  - Light Theme
+  - Custom Themes
+  - Multiple Languages
 - Media detection (Maybe with [Anisthesia](https://github.com/erengy/anisthesia) and [Anitomy](https://github.com/erengy/anitomy)?)
   - In desktop applications (VLC, MPV, etc.)
   - In streaming websites (Netflix, Crunchyroll, etc.)
@@ -53,22 +79,11 @@ Ami is still in early development. Here are some of the things that are planned:
     - Local Plex ([Reddit: Is there a Plex API I can use to detect if media is playing?](https://www.reddit.com/r/PleX/comments/3dislo/is_there_a_plex_api_i_can_use_to_detect_if_media/))
 - Automatic tracking
 - Notifications
-- Downloads
-- Streaming
-- Airing times
-- Discover
-  - Popular
-  - Trending
-  - Seasons
-  - Recommendations based on your library (Maybe with [Sprout Anime Recommender](https://anime.ameo.dev/interactive-recommender))
 - Synchronize all connected tracking services with local library
 - Discord Rich Presence
-- Search (on tracking service and local library)
-- Personal Statistics
-- Multiple Themes + Customization
-- Multiple Languages
 - Unit Tests
-
+- Executables for Windows, Linux and Mac
+- Installer
 
 ## Screenshots
 ### Home

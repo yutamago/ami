@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
 
-import {PageNotFoundComponent} from './shared/components/page-not-found/page-not-found.component';
-import {LibraryComponent} from "./library/library.component";
-import {SettingsComponent} from "./settings/settings.component";
-import {StatisticsComponent} from "./statistics/statistics.component";
-import {SearchComponent} from "./search/search.component";
-import {NewReleasesComponent} from "./new-releases/new-releases.component";
-import {DiscoverComponent} from "./discover/discover.component";
-import {DevComponent} from "./dev/dev.component";
-import {HomeComponent} from "./home/home.component";
+import {PageNotFoundComponent} from './views/page-not-found/page-not-found.component';
+import {LibraryComponent} from "./views/library/library.component";
+import {SettingsComponent} from "./views/settings/settings.component";
+import {StatisticsComponent} from "./views/statistics/statistics.component";
+import {SearchComponent} from "./views/search/search.component";
+import {NewReleasesComponent} from "./views/new-releases/new-releases.component";
+import {DiscoverComponent} from "./views/discover/discover.component";
+import {DevComponent} from "./views/dev/dev.component";
+import {HomeComponent} from "./views/home/home.component";
 
 export const routes: Routes = [
   {

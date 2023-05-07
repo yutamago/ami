@@ -5,7 +5,7 @@ import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {MatCheckboxChange, MatCheckboxModule} from "@angular/material/checkbox";
 import {SelectionModel} from "@angular/cdk/collections";
 import {ProgressCellComponent} from "./cell-components/progress-cell/progress-cell.component";
-import {AnimeModel} from "../../apis/general/models/anime.model";
+import {AnimeModel} from "../../../apis/general/models/anime.model";
 
 @Component({
   selector: 'app-library-list',

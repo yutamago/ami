@@ -1,12 +1,12 @@
 import {inject, Injectable} from '@angular/core';
-import {KitsuLibraryEntriesService} from "../../apis/kitsu/services/kitsu-library-entries.service";
-import {AuthService} from "../../apis/general/services/auth.service";
+import {KitsuLibraryEntriesService} from "../../../apis/kitsu/services/kitsu-library-entries.service";
+import {AuthService} from "../../../apis/general/services/auth.service";
 import {BehaviorSubject} from "rxjs";
-import {AnimeResource} from "../../apis/kitsu/schemas/resources/anime.resource";
-import {ResourceTypesEnum} from "../../apis/kitsu/schemas/resource-types.enum";
-import {AmiMainProfileType} from "../../apis/general/models/user.model";
-import {AnimeModel, AnimeModelTransformer} from "../../apis/general/models/anime.model";
-import {KitsuIdTypeSchema} from "../../apis/kitsu/schemas/kitsu-id-type.schema";
+import {AnimeResource} from "../../../apis/kitsu/schemas/resources/anime.resource";
+import {ResourceTypesEnum} from "../../../apis/kitsu/schemas/resource-types.enum";
+import {AmiMainProfileType} from "../../../apis/general/models/user.model";
+import {AnimeModel, AnimeModelTransformer} from "../../../apis/general/models/anime.model";
+import {KitsuIdTypeSchema} from "../../../apis/kitsu/schemas/kitsu-id-type.schema";
 
 
 @Injectable({

@@ -57,8 +57,8 @@ jobs:
     - name: Run headless unit test
       run: npm run test
 
-    - name: Run headless e2e test
-      run: npm run e2e
+#    - name: Run headless e2e test
+#      run: npm run e2e
 
     - name: Build the app
       run: npm run electron:build

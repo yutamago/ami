@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {ElectronService} from '../../core/services/electron/electron.service';
+import {ElectronService} from '../../../services/electron.service';
 
 @Component({
   selector: 'app-window-handle-bar',

@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatRippleModule} from "@angular/material/core";
-import {AnimeModel} from "../../../../apis/general/models/anime.model";
+import {AnimeModel} from "../../../../../apis/general/models/anime.model";
 
 @Component({
   selector: 'app-progress-cell',

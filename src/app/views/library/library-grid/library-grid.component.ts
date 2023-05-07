@@ -1,8 +1,8 @@
 import {Component, inject, Input} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import {AuthService} from "../../apis/general/services/auth.service";
+import {AuthService} from "../../../apis/general/services/auth.service";
 import {MatButtonModule} from "@angular/material/button";
-import {AnimeModel} from "../../apis/general/models/anime.model";
+import {AnimeModel} from "../../../apis/general/models/anime.model";
 
 @Component({
   selector: 'app-library-grid',

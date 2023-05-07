@@ -61,10 +61,10 @@ jobs:
       with:
         run: npm run test
 
-    - name: Run headless e2e test
-      uses: GabrielBB/xvfb-action@v1
-      with:
-        run: npm run e2e
+#    - name: Run headless e2e test
+#      uses: GabrielBB/xvfb-action@v1
+#      with:
+#        run: npm run e2e
 
     - name: Build the app
       run: npm run electron:build

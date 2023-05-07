@@ -1,10 +1,10 @@
 import {Component, HostBinding, inject} from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
-import {ElectronService} from "../../core/services/electron/electron.service";
+import {ElectronService} from "../../../services/electron.service";
 import {MatRippleModule} from "@angular/material/core";
 import {MatTooltipModule} from "@angular/material/tooltip";
-import {AnimeMangaToggle} from "../../library/library.component";
-import {AuthService} from "../../apis/general/services/auth.service";
+import {AnimeMangaToggle} from "../../../../views/library/library.component";
+import {AuthService} from "../../../../apis/general/services/auth.service";
 import {AsyncPipe, NgIf, NgOptimizedImage} from "@angular/common";
 
 @Component({

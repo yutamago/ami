@@ -66,6 +66,8 @@ jobs:
     - name: Run headless unit test
       run: pnpm run test
 
+    - name: Install Cypress for e2e
+      run: pnpm exec cypress install
     - name: Run headless e2e test
       run: pnpm run e2e
 

@@ -1,5 +1,5 @@
 import {Component, HostBinding, inject} from '@angular/core';
-import {CommonModule, NgIf} from '@angular/common';
+import {NgIf} from '@angular/common';
 import {RouterOutlet} from '@angular/router';
 import {ElectronService} from "./core/services/electron.service";
 import {environment} from "../environments/environment";

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeMediaRowComponent } from './home-media-row.component';
+import {initMatIconsForSpec} from "../../../../test.util";
 
 describe('HomeMediaRowComponent', () => {
   let component: HomeMediaRowComponent;
@@ -16,6 +17,7 @@ describe('HomeMediaRowComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  initMatIconsForSpec();
 
   it('should create', () => {
     expect(component).toBeTruthy();

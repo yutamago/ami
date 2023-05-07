@@ -28,19 +28,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Replace Secrets
-      uses: MathieuSoysal/replace-string-in-file@v1.0.0
-      with:
-        file: src/secrets.spec.ts
-        old-string: $$$SPEC_KITSU_USERNAME$$$
-        new-string: ${{ secrets.SPEC_KITSU_USERNAME }}
-    - name: Replace Secrets
-      uses: MathieuSoysal/replace-string-in-file@v1.0.0
-      with:
-        file: src/secrets.spec.ts
-        old-string: $$$SPEC_KITSU_PASSWORD$$$
-        new-string: ${{ secrets.SPEC_KITSU_PASSWORD }}
-
     - name: Install Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:

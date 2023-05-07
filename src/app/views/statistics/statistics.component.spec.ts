@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StatisticsComponent } from './statistics.component';
+import {initMatIconsForSpec} from "../../../test.util";
 
 describe('StatisticsComponent', () => {
+
   let component: StatisticsComponent;
   let fixture: ComponentFixture<StatisticsComponent>;
 
@@ -16,6 +18,7 @@ describe('StatisticsComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  initMatIconsForSpec();
 
   it('should create', () => {
     expect(component).toBeTruthy();

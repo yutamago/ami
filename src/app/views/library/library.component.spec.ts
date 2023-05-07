@@ -4,8 +4,10 @@ import { LibraryComponent } from './library.component';
 import {LibraryService} from "./services/library.service";
 import {KitsuLibraryEntriesService} from "../../apis/kitsu/services/kitsu-library-entries.service";
 import {provideHttpClient} from "@angular/common/http";
+import {initMatIconsForSpec} from "../../../test.util";
 
 describe('AnimeListComponent', () => {
+
   let component: LibraryComponent;
   let fixture: ComponentFixture<LibraryComponent>;
 
@@ -24,6 +26,7 @@ describe('AnimeListComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  initMatIconsForSpec();
 
   it('should create', () => {
     expect(component).toBeTruthy();

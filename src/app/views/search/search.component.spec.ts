@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchComponent } from './search.component';
+import {initMatIconsForSpec} from "../../../test.util";
 
 describe('SearchComponent', () => {
+
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
 
@@ -16,6 +18,7 @@ describe('SearchComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  initMatIconsForSpec();
 
   it('should create', () => {
     expect(component).toBeTruthy();

@@ -1,8 +1,10 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ProgressCellComponent} from './progress-cell.component';
+import {initMatIconsForSpec} from "../../../../../../test.util";
 
 describe('ProgressCellComponent', () => {
+
   let component: ProgressCellComponent;
   let fixture: ComponentFixture<ProgressCellComponent>;
 
@@ -18,6 +20,7 @@ describe('ProgressCellComponent', () => {
 
     fixture.detectChanges();
   });
+  initMatIconsForSpec();
 
   it('should create', () => {
     expect(component).toBeTruthy();

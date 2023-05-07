@@ -7,8 +7,10 @@ import {provideHttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 import {of} from "rxjs";
 import {RouterTestingModule} from "@angular/router/testing";
+import {initMatIconsForSpec} from "../../../../../test.util";
 
 describe('MainNavigationComponent', () => {
+
   let component: MainNavigationComponent;
   let fixture: ComponentFixture<MainNavigationComponent>;
 
@@ -23,6 +25,7 @@ describe('MainNavigationComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  initMatIconsForSpec();
 
   it('should create', () => {
     expect(component).toBeTruthy();

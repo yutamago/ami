@@ -2,8 +2,10 @@ import { TestBed } from '@angular/core/testing';
 
 import { KitsuUsersService } from './kitsu-users.service';
 import {provideHttpClient} from "@angular/common/http";
+import {initMatIconsForSpec} from "../../../../test.util";
 
 describe('KitsuUsersService', () => {
+
   let service: KitsuUsersService;
 
   beforeEach(() => {
@@ -14,6 +16,8 @@ describe('KitsuUsersService', () => {
     });
     service = TestBed.inject(KitsuUsersService);
   });
+
+  initMatIconsForSpec();
 
   it('should be created', () => {
     expect(service).toBeTruthy();

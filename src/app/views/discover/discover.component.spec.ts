@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DiscoverComponent } from './discover.component';
+import {initMatIconsForSpec} from "../../../test.util";
 
 describe('DiscoverComponent', () => {
   let component: DiscoverComponent;
@@ -16,6 +17,7 @@ describe('DiscoverComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  initMatIconsForSpec();
 
   it('should create', () => {
     expect(component).toBeTruthy();

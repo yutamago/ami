@@ -8,7 +8,7 @@ const RefreshTokenNSecondsBeforeExpiry = 60;
 
 const KitsuOauthStorageBase = 'kitsu_';
 
-const KitsuOAuthConfig = {
+export const KitsuOAuthConfig = {
   accessTokenStorageKey: KitsuOauthStorageBase + 'accessToken',
   accessTokenCreatedAtStorageKey: KitsuOauthStorageBase + 'accessTokenCreatedAt',
   accessTokenExpirationStorageKey: KitsuOauthStorageBase + 'accessTokenExpiration',
@@ -18,7 +18,7 @@ const KitsuOAuthConfig = {
   clientId: KitsuConfig.OAuthClientId,
 }
 
-type KitsuLoginResponse = {
+export type KitsuLoginResponse = {
   access_token: string, // Token used in Authorization header
   created_at: number,
   expires_in: number, // Seconds until the access_token expires (30 days default)

@@ -66,11 +66,12 @@ jobs:
       run: pnpm run lint
 
     - name: Run headless unit test
-      uses: GabrielBB/xvfb-action@v1
+      uses: coactions/setup-xvfb@v1
       with:
         run: pnpm run test
 
-    # reactivate after installing cypress
+    - name: Install Cypress for e2e
+      run: pnpm exec cypress install
     - name: Run headless e2e test
       uses: coactions/setup-xvfb@v1
       with:

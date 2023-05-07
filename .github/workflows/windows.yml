@@ -67,8 +67,8 @@ jobs:
       run: pnpm run test
 
      # reactivate after installing cypress
-#    - name: Run headless e2e test
-#      run: pnpm run e2e
+    - name: Run headless e2e test
+      run: pnpm run e2e
 
     - name: Build the app
       run: pnpm run electron:build

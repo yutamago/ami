@@ -5,7 +5,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 
 // Pfad zur angular.json Datei
-const pathToAngularJson = 'angular.json';
+const pathToAngularJson = '../angular.json';
 
 // Lese den Inhalt der angular.json-Datei
 const angularJson = JSON.parse(readFileSync(pathToAngularJson, 'utf8'));

@@ -30,9 +30,9 @@
     "test:watch": "ng test",
     "lint": "ng lint",
 
-
-    "switch-mode:install": "tsc switch-mode.install.ts && node switch-mode.install.js",
-    "switch-mode:default": "tsc switch-mode.default.ts && node switch-mode.default.js"
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@angular/animations": "15.2.8",
@@ -48,7 +48,6 @@
     "@angular/router": "15.2.8",
     "@fortawesome/fontawesome-free": "6.4.0",
     "@mdi/angular-material": "^7.2.96",
-    "angular-oauth2-oidc": "^15.0.1",
     "bootstrap": "^5.2.3",
     "rxjs": "7.8.0",
     "tslib": "^2.5.0",
@@ -64,16 +63,15 @@
     "@angular-eslint/template-parser": "15.2.1",
     "@angular/cli": "15.2.6",
     "@angular/compiler-cli": "15.2.8",
+    "@cypress/schematic": "2.5.0",
     "@ngx-translate/core": "14.0.0",
     "@ngx-translate/http-loader": "7.0.0",
-    "@playwright/test": "1.30.0",
     "@types/jasmine": "4.3.1",
     "@types/jasminewd2": "2.0.10",
     "@types/node": "18.14.0",
     "@typescript-eslint/eslint-plugin": "5.48.0",
     "@typescript-eslint/parser": "5.48.0",
-    "apib2swagger": "1.16.1",
-    "conventional-changelog-cli": "2.2.2",
+    "cypress": "latest",
     "electron": "23.1.0",
     "electron-builder": "23.6.0",
     "electron-debug": "3.2.0",
@@ -91,11 +89,9 @@
     "karma-jasmine-html-reporter": "2.0.0",
     "node-polyfill-webpack-plugin": "2.0.1",
     "npm-run-all": "4.1.5",
-    "playwright": "1.30.0",
     "ts-node": "10.9.1",
     "typescript": "~4.8.4",
-    "wait-on": "7.0.1",
-    "webdriver-manager": "12.1.8"
+    "wait-on": "7.0.1"
   },
   "engines": {
     "node": ">= 14.20.0 || >= 16.13.0 || >= 18.10.0"

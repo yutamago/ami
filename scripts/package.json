@@ -5,7 +5,10 @@
   "scripts": {
     "translator": "npx tsc --project tsconfig.json && node translator.js \"D:\\_workspaces\\cpp_ws\\taiga\\src\"",
     "translator2": "npx tsc --project tsconfig.json && node translator2.js taiga \"D:\\_workspaces\\cpp_ws\\taiga\\src\"",
-    "openapiRefactor": "npx tsc --project tsconfig.json && node openapiRefactor.js \"D:\\_workspaces\\cpp_ws\\taiga_electron\\src\\assets\\kitsu_swagger.yaml\" \"D:\\_workspaces\\cpp_ws\\taiga_electron\\src\\assets\\refactor\" kitsu"
+    "openapiRefactor": "npx tsc --project tsconfig.json && node openapiRefactor.js \"D:\\_workspaces\\cpp_ws\\taiga_electron\\src\\assets\\kitsu_swagger.yaml\" \"D:\\_workspaces\\cpp_ws\\taiga_electron\\src\\assets\\refactor\" kitsu",
+
+    "switch-mode:install": "tsc switch-mode.install.ts && node switch-mode.install.js",
+    "switch-mode:default": "tsc switch-mode.default.ts && node switch-mode.default.js"
   },
   "dependencies": {
     "prompt-sync": "4.2.0",

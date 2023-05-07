@@ -1,9 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {AuthService} from "./apis/general/services/auth.service";
+import {KitsuOAuthService} from "./apis/kitsu/services/kitsu-o-auth.service";
+import {provideHttpClient} from "@angular/common/http";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [AppComponent]
+    providers: [AuthService, KitsuOAuthService, provideHttpClient()],
+    imports: [AppComponent, RouterTestingModule.withRoutes([])]
   }));
 
   it('should create the app', () => {

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ProgressCellComponent } from './progress-cell.component';
+import {ProgressCellComponent} from './progress-cell.component';
 
 describe('ProgressCellComponent', () => {
   let component: ProgressCellComponent;
@@ -8,12 +8,14 @@ describe('ProgressCellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ ProgressCellComponent ]
+      imports: [ProgressCellComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ProgressCellComponent);
     component = fixture.componentInstance;
+    component.item = {id: {kitsu: '123456'}};
+
     fixture.detectChanges();
   });
 

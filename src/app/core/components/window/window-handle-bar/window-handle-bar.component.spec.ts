@@ -8,7 +8,7 @@ describe('WindowHandleBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WindowHandleBarComponent ]
+      imports: [ WindowHandleBarComponent ]
     })
     .compileComponents();
 

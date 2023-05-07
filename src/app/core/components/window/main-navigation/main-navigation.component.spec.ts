@@ -1,14 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MainNavigationComponent } from './main-navigation.component';
+import {MainNavigationComponent} from './main-navigation.component';
+import {AuthService} from "../../../../apis/general/services/auth.service";
+import {KitsuOAuthService} from "../../../../apis/kitsu/services/kitsu-o-auth.service";
+import {provideHttpClient} from "@angular/common/http";
+import {ActivatedRoute} from "@angular/router";
+import {of} from "rxjs";
+import {RouterTestingModule} from "@angular/router/testing";
 
-describe('NavigationLeftComponent', () => {
+describe('MainNavigationComponent', () => {
   let component: MainNavigationComponent;
   let fixture: ComponentFixture<MainNavigationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainNavigationComponent ]
+      providers: [AuthService, KitsuOAuthService, provideHttpClient()],
+      imports: [ MainNavigationComponent, RouterTestingModule.withRoutes([]) ]
     })
     .compileComponents();
 

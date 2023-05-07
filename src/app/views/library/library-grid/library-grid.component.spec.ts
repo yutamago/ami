@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LibraryGridComponent } from './library-grid.component';
+import {AuthService} from "../../../apis/general/services/auth.service";
+import {KitsuOAuthService} from "../../../apis/kitsu/services/kitsu-o-auth.service";
+import {provideHttpClient} from "@angular/common/http";
 
 describe('LibraryGridComponent', () => {
   let component: LibraryGridComponent;
@@ -8,6 +11,7 @@ describe('LibraryGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [AuthService, KitsuOAuthService, provideHttpClient()],
       imports: [ LibraryGridComponent ]
     })
     .compileComponents();

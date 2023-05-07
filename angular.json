@@ -183,6 +183,10 @@
         },
         "test": {
           "builder": "@angular-builders/custom-webpack:karma",
+          "customWebpackConfig": {
+            "path": "./angular.webpack.js",
+            "replaceDuplicatePlugins": true
+          },
           "options": {
             "polyfills": [
               "zone.js",

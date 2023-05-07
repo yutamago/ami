@@ -31,6 +31,22 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Find and Replace
+      uses: jacobtomlinson/gha-find-replace@v3
+      with:
+        find: "$$$SPEC_KITSU_USERNAME$$$"
+        replace: ${{ secrets.SPEC_KITSU_USERNAME }}
+        regex: false
+        include: "**/secrets.spec.ts"
+
+    - name: Find and Replace
+      uses: jacobtomlinson/gha-find-replace@v3
+      with:
+        find: "$$$SPEC_KITSU_PASSWORD$$$"
+        replace: ${{ secrets.SPEC_KITSU_PASSWORD }}
+        regex: false
+        include: "**/secrets.spec.ts"
+
     - name: Install Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:

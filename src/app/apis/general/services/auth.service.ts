@@ -13,7 +13,7 @@ export class AuthService {
   isLoggedInKitsu$ = new BehaviorSubject<boolean>(false);
 
   constructor(private kitsuAuthService: KitsuOAuthService, private kitsuUserService: KitsuUsersService) {
-    this.init().then();
+    this.init().then().catch();
   }
 
   private async init() {

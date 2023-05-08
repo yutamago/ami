@@ -24,7 +24,7 @@ export class ElectronService {
     }
   }
   get isElectron(): boolean {
-    return !!(window && window.process && window.process.type);
+    return !!(window?.process?.type);
   }
 
   // eslint-disable-next-line max-lines-per-function

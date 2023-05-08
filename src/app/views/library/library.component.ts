@@ -86,10 +86,10 @@ export class LibraryComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.authService.isLoggedInKitsu$.subscribe(async x => {
+    this.authService.isLoggedInKitsu$.subscribe(x => {
       if(!x) return;
 
-      await this.libraryService.load();
+      this.libraryService.load().then().catch();
     });
   }
 }

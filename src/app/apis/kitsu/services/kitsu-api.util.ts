@@ -71,7 +71,7 @@ export class KitsuApiUtil {
 export class SafeTimeout {
   private handle?: number;
 
-  constructor(handler: () => void, timeout: number) {
+  constructor(handler: (() => void) | (() => Promise<void>), timeout: number) {
     this.handle = makeSafeTimeout(
       handler,
       timeout,

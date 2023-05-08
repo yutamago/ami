@@ -36,6 +36,8 @@
   "exclude": [
     "node_modules",
     "**/*.spec.ts",
-    "api.ignore"
+    "api.ignore",
+    "cypress.config.ts",
+    "cypress/**/*"
   ]
 }

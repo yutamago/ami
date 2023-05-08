@@ -1,19 +1,19 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../out-tsc/app",
+    "outDir": "./out-tsc/app",
     "baseUrl": "",
     "types": [
       "node"
     ]
   },
   "files": [
-    "main.ts"
+    "src/main.ts"
   ],
   "include": [
-    "**/*.d.ts"
+    "src/**/*.d.ts"
   ],
   "exclude": [
-    "**/*.spec.ts"
+    "src/**/*.spec.ts"
   ]
 }

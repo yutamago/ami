@@ -1,46 +1,5 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "useDefineForClassFields": false,
-
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowJs": true,
-    "target": "ES2022",
-    "module": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "es2016",
-      "es2015",
-      "es2018",
-      "ES2022",
-      "dom"
-    ],
-  },
-  "exclude": [
-    "node_modules",
-    "api.ignore"
-  ],
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true,
-  }
+  "extends": "./tsconfig.base.json",
+  "exclude": ["cypress.config.ts", "cypress/**/*"]
 }

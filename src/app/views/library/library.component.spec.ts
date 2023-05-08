@@ -21,12 +21,12 @@ describe('AnimeListComponent', () => {
       imports: [ LibraryComponent ]
     })
     .compileComponents();
-
+  });
+  initMatIconsForSpec(() => {
     fixture = TestBed.createComponent(LibraryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  initMatIconsForSpec();
 
   it('should create', () => {
     expect(component).toBeTruthy();

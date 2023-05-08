@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ProgressCellComponent} from './progress-cell.component';
 import {initMatIconsForSpec} from "../../../../../../test.util";
+import {provideHttpClient} from "@angular/common/http";
 
 describe('ProgressCellComponent', () => {
 
@@ -10,17 +11,18 @@ describe('ProgressCellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProgressCellComponent]
+      imports: [ProgressCellComponent],
+      providers: [provideHttpClient()]
     })
       .compileComponents();
-
+  });
+  initMatIconsForSpec(() => {
     fixture = TestBed.createComponent(ProgressCellComponent);
     component = fixture.componentInstance;
     component.item = {id: {kitsu: '123456'}};
 
     fixture.detectChanges();
   });
-  initMatIconsForSpec();
 
   it('should create', () => {
     expect(component).toBeTruthy();

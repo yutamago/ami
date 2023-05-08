@@ -13,7 +13,10 @@ export class KitsuApiUtil {
   }
   public static addDeepObjectToHttpParams(httpParams: HttpParams, value: { [fieldName: string]: any }, key: string): HttpParams {
     for(const field of Object.keys(value)) {
-      httpParams = httpParams.append(`${key}[${field}]`, value[field]);
+      const fieldValue = value[field];
+      const paramValue = typeof fieldValue === 'object' ? JSON.stringify(fieldValue) : fieldValue;
+
+      httpParams = httpParams.append(`${key}[${field}]`, paramValue);
     }
     return httpParams;
   }
@@ -59,7 +62,7 @@ export class KitsuApiUtil {
     if (!parameters) return params;
 
     if (parameters.fields !== undefined && parameters.fields !== null) {
-      params = this.addToHttpParams(params, parameters.fields, 'fields');
+      params = this.addDeepObjectToHttpParams(params, parameters.fields, 'fields');
     }
     if (parameters.include !== undefined && parameters.include !== null) {
       params = this.addToHttpParams(params, parameters.include, 'include');

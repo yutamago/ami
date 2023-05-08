@@ -18,20 +18,33 @@ export class KitsuApiUtil {
     return httpParams;
   }
 
+  private static addToHttpParamsRecursiveObject(httpParams: HttpParams, value: any, key?: string): HttpParams {
+    if (Array.isArray(value)) {
+      value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+      return httpParams;
+    }
+
+    if (value instanceof Date) {
+      if (key === null || key === undefined)
+        throw Error("key may not be null if value is Date");
+
+      httpParams = httpParams.append(key, value.toISOString().substring(0, 10));
+      return httpParams;
+    }
+
+    Object.keys(value).forEach(k => {
+      const newKey = key != null ? `${key}.${k}` : k;
+      httpParams = this.addToHttpParamsRecursive(httpParams, value[k], newKey)
+    });
+
+    return httpParams;
+  }
+
   private static addToHttpParamsRecursive(httpParams: HttpParams, value?: any, key?: string): HttpParams {
     if (value === null || value === undefined) return httpParams;
 
     if (typeof value === "object") {
-      if (Array.isArray(value)) {
-        value.forEach(elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
-      } else if (value instanceof Date) {
-        if (key === null || key === undefined) throw Error("key may not be null if value is Date");
-
-        httpParams = httpParams.append(key, value.toISOString().substring(0, 10));
-      } else {
-        Object.keys(value).forEach(k => httpParams = this.addToHttpParamsRecursive(
-          httpParams, value[k], key != null ? `${key}.${k}` : k));
-      }
+      httpParams = this.addToHttpParamsRecursiveObject(httpParams, value, key);
     } else if (key !== null && key !== undefined) {
       httpParams = httpParams.append(key, value);
     } else {
@@ -41,7 +54,7 @@ export class KitsuApiUtil {
     return httpParams;
   }
 
-  static ToHttpParams(parameters: CommonParameters | undefined): HttpParams {
+  public static ToHttpParams(parameters: CommonParameters | undefined): HttpParams {
     let params = new HttpParams();
     if (!parameters) return params;
 
@@ -67,7 +80,9 @@ export class KitsuApiUtil {
 
 }
 
-
+/**
+ * a timeout that supports timespans greater than 25 days
+ */
 export class SafeTimeout {
   private handle?: number;
 

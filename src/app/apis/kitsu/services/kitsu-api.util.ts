@@ -4,7 +4,7 @@ import {CommonParameters} from "./common.parameters";
 
 export class KitsuApiUtil {
   public static addToHttpParams(httpParams: HttpParams, value: any, key?: string): HttpParams {
-    if (typeof value === "object" && !(value instanceof Date)) {
+    if (typeof value === "object" && !(value instanceof Date) && !Array.isArray(value)) {
       httpParams = KitsuApiUtil.addToHttpParamsRecursive(httpParams, value);
     } else {
       httpParams = KitsuApiUtil.addToHttpParamsRecursive(httpParams, value, key);
@@ -61,6 +61,33 @@ export class KitsuApiUtil {
     let params = new HttpParams();
     if (!parameters) return params;
 
+    for (const parameter in parameters) {
+      const value = (parameters as any)[parameter];
+
+      if(value === null || value === undefined)
+        continue;
+
+      switch(parameter) {
+        case 'fields':
+          params = this.addDeepObjectToHttpParams(params, value, 'fields');
+          break;
+        case 'include':
+          params = this.addToHttpParams(params, value, 'include');
+          break;
+        case 'page':
+          params = this.addDeepObjectToHttpParams(params, value, 'page');
+          break;
+        case 'sort':
+          params = this.addToHttpParams(params, value, 'sort');
+          break;
+        case 'filter':
+          params = this.addDeepObjectToHttpParams(params, value, 'filter');
+          break;
+        default:
+          throw new Error('Unknown HTTP Param type: ' + parameter);
+      }
+    }
+
     if (parameters.fields !== undefined && parameters.fields !== null) {
       params = this.addDeepObjectToHttpParams(params, parameters.fields, 'fields');
     }
@@ -79,8 +106,6 @@ export class KitsuApiUtil {
 
     return params;
   }
-
-
 }
 
 /**

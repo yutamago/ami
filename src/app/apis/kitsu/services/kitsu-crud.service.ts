@@ -7,6 +7,7 @@ import {KitsuApiUtil} from "./kitsu-api.util";
 import {ResourceTypesEnum} from "../schemas/resource-types.enum";
 import {CommonParameters} from "./common.parameters";
 import {KitsuIdTypeSchema} from "../schemas/kitsu-id-type.schema";
+import {KitsuFetchOneResponse} from "../models/responses/kitsu-fetch-one.response";
 
 export abstract class KitsuCrudService<DataType extends KitsuIdTypeSchema<ResourceType>, ResourceType extends ResourceTypesEnum, AttributesType> {
   // protected readonly ROUTE: string = '';
@@ -35,7 +36,7 @@ export abstract class KitsuCrudService<DataType extends KitsuIdTypeSchema<Resour
 
     const params = KitsuApiUtil.ToHttpParams(parameters);
 
-    return await lastValueFrom(this.http.get<KitsuFetchManyResponse<DataType, ResourceType>>(`${this.ROUTE}/${encodeURIComponent(id)}`, {
+    return await lastValueFrom(this.http.get<KitsuFetchOneResponse<DataType, ResourceType>>(`${this.ROUTE}/${encodeURIComponent(id)}`, {
       params: params,
       headers: authHeader,
     }));
@@ -47,7 +48,7 @@ export abstract class KitsuCrudService<DataType extends KitsuIdTypeSchema<Resour
 
     const params = KitsuApiUtil.ToHttpParams(parameters);
 
-    return await lastValueFrom(this.http.post<KitsuFetchManyResponse<DataType, ResourceType>>(this.ROUTE, body, {
+    return await lastValueFrom(this.http.post<KitsuFetchOneResponse<DataType, ResourceType>>(this.ROUTE, body, {
       params: params,
       headers: authHeader,
     }));
@@ -59,19 +60,19 @@ export abstract class KitsuCrudService<DataType extends KitsuIdTypeSchema<Resour
 
     const params = KitsuApiUtil.ToHttpParams(parameters);
 
-    return await lastValueFrom(this.http.patch<KitsuFetchManyResponse<DataType, ResourceType>>(`${this.ROUTE}/${encodeURIComponent(id)}`, body, {
+    return await lastValueFrom(this.http.patch<KitsuFetchOneResponse<DataType, ResourceType>>(`${this.ROUTE}/${encodeURIComponent(id)}`, body, {
       params: params,
       headers: authHeader,
     }));
   }
 
-  public async delete(id: string, body: AttributesType, parameters?: CommonParameters) {
+  public async delete(id: string, parameters?: CommonParameters) {
     const authHeader = this.auth.authorizationHeader;
     if (!authHeader) throw new Error('not logged in');
 
     const params = KitsuApiUtil.ToHttpParams(parameters);
 
-    return await lastValueFrom(this.http.delete<KitsuFetchManyResponse<DataType, ResourceType>>(`${this.ROUTE}/${encodeURIComponent(id)}`, {
+    return await lastValueFrom(this.http.delete<KitsuFetchOneResponse<DataType, ResourceType>>(`${this.ROUTE}/${encodeURIComponent(id)}`, {
       params: params,
       headers: authHeader,
     }));

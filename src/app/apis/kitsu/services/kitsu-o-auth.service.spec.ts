@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 
 import {KitsuLoginResponse, KitsuOAuthConfig, KitsuOAuthService} from './kitsu-o-auth.service';
-import {HttpClient, provideHttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders, provideHttpClient} from "@angular/common/http";
 import {initMatIconsForSpec} from "../../../../test.util";
 import {HttpClientTestingModule, HttpTestingController, provideHttpClientTesting} from "@angular/common/http/testing";
 
@@ -95,3 +95,14 @@ describe('KitsuOAuthService', () => {
     httpTestingController.verify();
   });
 });
+
+
+export class KitsuOAuthServiceTesting {
+  private readonly _authorizationHeader = new HttpHeaders({
+    Authorization: 'bearer testtesttest'
+  });
+
+  get authorizationHeader(): HttpHeaders | null {
+    return this._authorizationHeader;
+  }
+}
